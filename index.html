@@ -1,848 +1,839 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="de" data-zurueck="stimmen name">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>VIANU — Your Employees. Pain free.</title>
-<meta property="og:title" content="VIANU — Your Employees. Pain free."/>
-<meta property="og:description" content="AI-crafted orthopedic insoles for hospitality teams. Custom per employee, branded for your company, delivered in 24 hours."/>
-<meta property="og:image" content="https://vianu247.com/images/og-preview.jpg"/>
-<link rel="icon" type="image/png" href="images/vianu_favicon.png"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
-<style>
-:root{--black:#0a0a0a;--white:#f5f0eb;--mid:#6b6b6b;--metal:#2a2a2a;--rule:#1e1e1e;--rule-light:#d4cfc9;--acid:#C5FA1F;--pink:#FF88BC;--font-head:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;--font-mono:'Space Mono',monospace;--gap:1px}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--white);color:var(--black);font-family:var(--font-body);font-weight:300;overflow-x:hidden;cursor:crosshair}
-a{text-decoration:none;color:inherit}
-img{display:block;width:100%;object-fit:cover}
-button{cursor:pointer;font-family:var(--font-body);border:none;background:none}
-.t-display{font-family:var(--font-head);font-weight:900;font-size:clamp(5rem,12vw,14rem);line-height:.88;letter-spacing:-.02em;text-transform:uppercase}
-.t-h1{font-family:var(--font-head);font-weight:800;font-size:clamp(3rem,7vw,7rem);line-height:.9;letter-spacing:-.01em;text-transform:uppercase}
-.t-h2{font-family:var(--font-head);font-weight:700;font-size:clamp(2rem,4vw,4.5rem);line-height:.95;letter-spacing:.02em;text-transform:uppercase}
-.t-num{font-family:var(--font-head);font-weight:900;font-size:clamp(3.5rem,7vw,8rem);letter-spacing:-.03em;line-height:1}
-.lang-switcher{display:flex}
-.lang-btn{background:none;border:1px solid var(--rule);color:var(--mid);font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;padding:.3rem .6rem;transition:all .15s}
-.lang-btn:first-child{border-right:none}
-.lang-btn.active{background:var(--black);color:var(--acid);border-color:var(--black)}
-.lang-btn:not(.active):hover{color:var(--black);border-color:var(--black)}
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;background:var(--black);border-bottom:1px solid var(--rule);height:56px}
-.nav-logo-wrap{padding:0 1.5rem;border-right:1px solid var(--rule);height:100%;display:flex;align-items:center}
-.logo-svg-nav{height:28px;width:auto;display:block}
-nav ul{display:flex;list-style:none;height:100%}
-nav ul li{border-right:1px solid var(--rule);height:100%;display:flex;align-items:center}
-nav ul a{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#999;padding:0 1.2rem;transition:color .15s;white-space:nowrap}
-nav ul a:hover{color:var(--acid)}
-.nav-cta-wrap{padding:0 1.5rem;border-left:1px solid var(--rule);height:100%;display:flex;align-items:center}
-.nav-cta{background:var(--acid);color:var(--black);font-family:var(--font-mono);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.45rem 1.1rem;transition:background .15s;display:block}
-.nav-cta:hover{background:var(--white)}
-.nav-lang-wrap{padding:0 1rem;border-left:1px solid var(--rule);height:100%;display:flex;align-items:center}
-/* HERO */
-.hero{margin-top:56px;min-height:calc(100vh - 56px);background:var(--black);display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden}
-.hero-inner{display:grid;grid-template-columns:1fr 360px;align-items:end;padding:4rem 3rem 0;gap:0}
-.hero-left{padding-bottom:4rem}
-.hero-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
-.hero-eyebrow-line{width:40px;height:1px;background:var(--acid)}
-.hero-eyebrow span{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acid)}
-.hero-title{color:var(--white)}
-.hero-title .line-italic{font-style:italic;color:var(--acid);display:block}
-.hero-sub{color:#bbb;max-width:480px;margin-top:2rem;font-size:1rem;line-height:1.8}
-.hero-actions{display:flex;align-items:center;gap:1.5rem;margin-top:2.5rem}
-.btn-primary{background:var(--acid);color:var(--black);font-family:var(--font-mono);font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.85rem 2rem;display:inline-block;transition:background .15s,color .15s}
-.btn-primary:hover{background:var(--white)}
-.btn-ghost{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#555;border-bottom:1px solid #333;padding-bottom:2px;transition:color .15s,border-color .15s}
-.btn-ghost:hover{color:var(--acid);border-color:var(--acid)}
-.hero-right{border-left:1px solid var(--rule);display:flex;flex-direction:column;align-items:stretch;align-self:stretch}
-.hero-stat{padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--rule);flex:1}
-.hero-stat-num{color:var(--white);line-height:1}
-.hero-stat-num .unit{font-family:var(--font-head);font-size:2rem;font-weight:700;color:var(--acid);margin-left:.15rem}
-.hero-stat-label{margin-top:.5rem;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:#aaa}
-.hero-bar{border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr 1fr auto;align-items:stretch;height:56px}
-.hero-bar-item{border-right:1px solid var(--rule);display:flex;align-items:center;gap:1rem;padding:0 1.5rem}
-.hero-bar-dot{width:6px;height:6px;background:var(--acid);flex-shrink:0}
-.hero-bar-text{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#aaa}
-.hero-bar-scroll{padding:0 1.5rem;display:flex;align-items:center;gap:.75rem}
-.scroll-line{width:24px;height:1px;background:#333}
-.scroll-text{font-family:var(--font-mono);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:#333}
-/* IMAGES */
-.section-images{display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--gap);background:var(--black);border-bottom:4px solid var(--acid)}
-.img-cell{position:relative;overflow:hidden;background:var(--metal)}
-.img-cell.tall{min-height:520px}
-.img-cell img{width:100%;height:100%;object-fit:cover;filter:grayscale(15%) contrast(1.05);transition:filter .4s,transform .6s}
-.img-cell:hover img{filter:grayscale(0%) contrast(1);transform:scale(1.03)}
-.img-caption{position:absolute;bottom:0;left:0;right:0;padding:1rem 1.25rem;background:linear-gradient(transparent,rgba(10,10,10,.85))}
-.img-caption strong{display:block;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--white);margin-bottom:.2rem}
-.img-caption span{font-size:.7rem;color:#999}
-/* SHARED */
-.sec-label{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem}
-.sec-label::before{content:'';display:block;width:24px;height:1px;background:var(--mid)}
-/* PROBLEM */
-.section-problem{background:var(--white);display:grid;grid-template-columns:1fr 1fr;min-height:80vh}
-.prob-left{padding:5rem 4rem;border-right:1px solid var(--rule-light);display:flex;flex-direction:column;justify-content:space-between}
-.prob-right{padding:5rem 4rem;background:var(--black);display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-content:start}
-.chain{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:2.5rem}
-.chain-item{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem .8rem;border:1px solid var(--rule-light);color:var(--black)}
-.chain-item.first{background:var(--acid);color:var(--black);border-color:var(--acid)}
-.chain-arrow{color:var(--rule-light);font-size:.8rem}
-.stat-card{padding:2.5rem 2rem;border:1px solid var(--rule);background:var(--rule);position:relative;overflow:hidden}
-.stat-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--acid)}
-.stat-num{color:var(--white)}
-.stat-unit{font-family:var(--font-head);font-weight:900;font-size:2.5rem;color:var(--acid)}
-.stat-label{margin-top:.75rem;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#bbb;line-height:1.6}
-/* HOW */
-.section-how{background:var(--black);padding:0}
-.how-header{display:grid;grid-template-columns:1fr auto;align-items:end;padding:4rem 4rem 2rem;border-bottom:1px solid var(--rule)}
-.how-headline{color:var(--white)}
-.how-count{font-family:var(--font-head);font-weight:900;font-size:8rem;line-height:1;color:#333;letter-spacing:-.03em;user-select:none}
-.how-img-wrap{border-bottom:1px solid var(--rule);position:relative;overflow:hidden;height:380px}
-.how-img-wrap img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%) contrast(1.1)}
-.how-img-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,.7) 0%,transparent 50%);display:flex;align-items:flex-end;padding:2rem 3rem}
-.how-img-tag{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acid);border:1px solid var(--acid);padding:.35rem .8rem}
-.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.step{padding:3rem 2rem;border-right:1px solid var(--rule);position:relative;transition:background .2s}
-.step:last-child{border-right:none}
-.step:hover{background:#111}
-.step-num{font-family:var(--font-head);font-weight:900;font-size:6rem;line-height:1;color:#2e2e2e;margin-bottom:1.5rem;transition:color .2s}
-.step:hover .step-num{color:#2a2a2a}
-.step-title{font-family:var(--font-head);font-weight:700;font-size:1.4rem;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:1rem;line-height:1.15}
-.step-body{font-size:.88rem;line-height:1.7;color:#aaa}
-.step-tag{display:inline-block;margin-top:1.5rem;font-family:var(--font-mono);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acid);border:1px solid #2a2a2a;padding:.25rem .6rem}
-.how-footer{border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;align-items:center;padding:1.25rem 4rem}
-.how-footer-text{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#999}
-.how-footer-text span{color:var(--acid)}
-/* ROI */
-.section-roi{background:var(--white);display:grid;grid-template-columns:1fr 1fr;min-height:80vh}
-.roi-left{padding:5rem 4rem;border-right:1px solid var(--rule-light);display:flex;flex-direction:column;justify-content:space-between}
-.roi-right{padding:5rem 4rem;background:#f0ebe4}
-.roi-calc{background:var(--black);padding:2.5rem}
-.roi-calc-head{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acid);margin-bottom:.5rem}
-.roi-calc-sub{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.12em;color:#aaa;margin-bottom:2rem}
-.slider-wrap label{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:#555;display:block;margin-bottom:.6rem}
-input[type=range]{width:100%;accent-color:var(--acid);cursor:pointer;margin-bottom:.5rem}
-.slider-val{font-family:var(--font-head);font-weight:900;font-size:3rem;color:var(--acid);line-height:1}
-.slider-unit{font-family:var(--font-mono);font-size:.6rem;color:#444;letter-spacing:.1em}
-.roi-row{display:flex;justify-content:space-between;align-items:baseline;padding:.75rem 0;border-bottom:1px solid #1e1e1e}
-.roi-row:last-of-type{border-bottom:none}
-.roi-row-label{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:#aaa}
-.roi-row-val{font-family:var(--font-head);font-weight:700;font-size:1.1rem;letter-spacing:.04em;color:var(--white)}
-.roi-row-val.accent{color:var(--acid)}
-.roi-total{margin-top:1.5rem;padding:1.5rem;background:#0f0f0f;display:flex;justify-content:space-between;align-items:center;border-left:4px solid var(--acid)}
-.roi-total-label{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#aaa}
-.roi-total-val{font-family:var(--font-head);font-weight:900;font-size:2.5rem;color:var(--acid);letter-spacing:-.02em}
-.roi-cta{display:block;margin-top:1.5rem;background:var(--acid);color:var(--black);font-family:var(--font-mono);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.85rem;text-align:center;transition:background .15s}
-.roi-cta:hover{background:var(--white)}
-.benefit-list{margin-top:2rem;display:flex;flex-direction:column;gap:0}
-.benefit-item{display:grid;grid-template-columns:1.5rem 1fr;gap:1rem;align-items:start;padding:1.25rem 0;border-bottom:1px solid var(--rule-light)}
-.benefit-item:last-child{border-bottom:none}
-.benefit-icon{width:1.5rem;height:1.5rem;background:var(--acid);display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0;margin-top:.1rem}
-.benefit-title{font-family:var(--font-head);font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:var(--black);margin-bottom:.25rem}
-.benefit-desc{font-size:.85rem;color:#555;line-height:1.6}
-/* PRICING */
-.section-pricing{background:var(--black);padding:5rem 0 0}
-.pricing-header{padding:0 4rem 3rem;display:grid;grid-template-columns:1fr auto;align-items:end;border-bottom:1px solid var(--rule)}
-.pricing-headline{color:var(--white)}
-.pricing-note{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#aaa;text-align:right}
-.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
-.price-card{padding:3rem 2.5rem 2.5rem;border-right:1px solid var(--rule);border-top:1px solid var(--rule);position:relative}
-.price-card:last-child{border-right:none}
-.price-card.featured{background:#0f0f0f;border-top:3px solid var(--acid)}
-.price-badge{display:inline-block;font-family:var(--font-mono);font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;background:var(--acid);color:var(--black);padding:.25rem .7rem;margin-bottom:1.5rem}
-.price-tier{font-family:var(--font-head);font-weight:700;font-size:1.5rem;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:.5rem}
-.price-amount{font-family:var(--font-head);font-weight:900;font-size:4rem;line-height:1;letter-spacing:-.02em;color:var(--acid);margin:1rem 0}
-.price-per{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;color:#aaa}
-.price-min{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:#aaa;margin-bottom:1.5rem}
-.price-divider{width:100%;height:1px;background:var(--rule);margin:1.5rem 0}
-.price-features{list-style:none;display:flex;flex-direction:column;gap:.65rem}
-.price-features li{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#bbb;display:flex;align-items:flex-start;gap:.75rem;line-height:1.5}
-.price-features li::before{content:'\2014';color:var(--acid);flex-shrink:0}
-.price-cta{display:block;margin-top:2rem;padding:.75rem;text-align:center;font-family:var(--font-mono);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border:1px solid #444;color:#aaa;transition:all .15s}
-.price-card.featured .price-cta{background:var(--acid);color:var(--black);border-color:var(--acid)}
-.price-cta:hover{border-color:var(--acid);color:var(--acid)}
-.price-card.featured .price-cta:hover{background:var(--white);border-color:var(--white);color:var(--black)}
-/* ABOUT */
-.section-about{background:var(--black);display:grid;grid-template-columns:380px 1fr;border-top:1px solid var(--rule)}
-.about-portrait-col{border-right:1px solid var(--rule);display:flex;flex-direction:column}
-.portrait-frame{flex:1;background:var(--metal);position:relative;overflow:hidden;min-height:480px}
-.portrait-frame img{width:100%;height:100%;object-fit:cover}
-.portrait-frame::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--acid),var(--pink))}
-.portrait-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:#333;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase}
-.portrait-placeholder span:first-child{font-size:3rem;opacity:.3}
-.portrait-meta{padding:1.5rem 2rem;border-top:1px solid var(--rule)}
-.portrait-name{font-family:var(--font-head);font-weight:800;font-size:1.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--white);line-height:1}
-.portrait-role{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acid);margin-top:.4rem}
-.portrait-links{display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap}
-.portrait-link{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#444;border:1px solid #222;padding:.3rem .8rem;display:flex;align-items:center;gap:.5rem;transition:all .15s}
-.portrait-link:hover{color:var(--acid);border-color:var(--acid)}
-.about-content{padding:5rem 4rem}
-.about-headline{color:var(--white)}
-.about-quote{margin:2.5rem 0;padding-left:2rem;border-left:3px solid var(--acid)}
-.about-quote blockquote{font-family:var(--font-head);font-style:italic;font-weight:300;font-size:clamp(1.1rem,2vw,1.5rem);line-height:1.5;color:#ddd}
-.about-bio{color:#bbb;line-height:1.8;margin-bottom:1.25rem;font-size:.95rem}
-.pillars-2x2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-top:2.5rem}
-.pillar-card{padding:2rem 1.75rem;border:1px solid var(--rule);background:#0f0f0f;transition:border-color .2s}
-.pillar-card:hover{border-color:var(--acid)}
-.pillar-icon{font-size:1.5rem;margin-bottom:1rem}
-.pillar-title{font-family:var(--font-head);font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:.5rem}
-.pillar-desc{font-size:.82rem;color:#bbb;line-height:1.6}
-/* QUOTES */
-.section-quotes{background:var(--white);border-top:4px solid var(--acid);padding:5rem 0}
-.quotes-header{padding:0 4rem 3rem;border-bottom:1px solid var(--rule-light)}
-.quotes-grid{display:grid;grid-template-columns:repeat(3,1fr)}
-.quote-card{padding:3rem 2.5rem;border-right:1px solid var(--rule-light);position:relative}
-.quote-card:last-child{border-right:none}
-.quote-mark{font-family:var(--font-head);font-weight:900;font-size:8rem;line-height:.7;color:rgba(197,250,31,.15);position:absolute;top:2rem;left:2rem;user-select:none}
-.quote-text{font-size:.95rem;line-height:1.75;color:#333;font-style:italic;margin-top:3rem;position:relative}
-.quote-divider{width:2rem;height:2px;background:var(--acid);margin:1.5rem 0}
-.quote-author{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--black)}
-.quote-company{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:#999;margin-top:.2rem}
-/* CTA */
-.section-cta{background:var(--black);border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;min-height:60vh}
-.cta-left{padding:5rem 4rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:space-between}
-.cta-right{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:space-between}
-.cta-headline{color:var(--white);line-height:.88}
-.cta-headline .acid{color:var(--acid)}
-.cta-sub{color:#bbb;margin-top:1.5rem;max-width:380px;font-size:.95rem;line-height:1.8}
-.steps-list{margin-top:3rem;display:flex;flex-direction:column}
-.cta-step{display:grid;grid-template-columns:2rem 1fr;gap:1rem;padding:1.25rem 0;border-bottom:1px solid var(--rule)}
-.cta-step-num{font-family:var(--font-head);font-weight:900;font-size:1.5rem;color:var(--acid);line-height:1}
-.cta-step-title{font-family:var(--font-head);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:.3rem}
-.cta-step-desc{font-size:.82rem;color:#aaa;line-height:1.6}
-.cta-form-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#aaa;margin-bottom:1.5rem;display:block}
-.cta-input-row{display:flex}
-.cta-input{flex:1;padding:.9rem 1.25rem;background:#111;border:1px solid #222;border-right:none;color:var(--white);font-family:var(--font-mono);font-size:.7rem;outline:none;transition:border-color .15s}
-.cta-input::placeholder{color:#333}
-.cta-input:focus{border-color:var(--acid)}
-.cta-submit{padding:.9rem 1.5rem;background:var(--acid);color:var(--black);font-family:var(--font-mono);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border:none;cursor:pointer;transition:background .15s;white-space:nowrap}
-.cta-submit:hover{background:var(--white)}
-.cta-note{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;color:#999;margin-top:1rem}
-.cta-note a{color:var(--acid);transition:opacity .15s}
-.cta-note a:hover{opacity:.7}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-top:2rem}
-.contact-item{padding:1.5rem;background:#0f0f0f;border:1px solid #1a1a1a;transition:border-color .15s}
-.contact-item:hover{border-color:var(--acid)}
-.contact-item-label{font-family:var(--font-mono);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:.4rem}
-.contact-item-val{font-family:var(--font-mono);font-size:.7rem;color:var(--acid);letter-spacing:.06em}
-.contact-item-val a{color:inherit;transition:opacity .15s}
-.contact-item-val a:hover{opacity:.7}
-/* FOOTER */
-footer{background:var(--black);border-top:1px solid var(--rule);display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;height:56px}
-.footer-logo-wrap{padding:0 1.5rem;border-right:1px solid var(--rule);height:100%;display:flex;align-items:center}
-.logo-svg-footer{height:22px;width:auto;display:block}
-footer p{padding:0 1.5rem;font-family:var(--font-mono);font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:#888}
-.footer-links{display:flex;height:100%}
-.footer-links a{font-family:var(--font-mono);font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:#888;border-left:1px solid var(--rule);padding:0 1.25rem;display:flex;align-items:center;transition:color .15s}
-.footer-links a:hover{color:var(--acid)}
-.footer-acid{height:100%;width:4px;background:var(--acid)}
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{opacity:0;animation:fadeUp .7s ease forwards}
-.d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.4s}.d5{animation-delay:.55s}
-[data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-[data-reveal].visible{opacity:1;transform:translateY(0)}
-/* RESPONSIVE */
-@media(max-width:960px){
-  nav ul{display:none}
-  .hero-inner{grid-template-columns:1fr;padding:2rem 1.5rem 0}
-  .hero-right{display:none}
-  .hero-bar{grid-template-columns:1fr 1fr}
-  .section-images{grid-template-columns:1fr 1fr}
-  .img-cell.tall{grid-column:span 2;min-height:300px}
-  .section-problem,.section-roi,.section-about,.section-cta{grid-template-columns:1fr}
-  .prob-left,.prob-right,.roi-left,.roi-right,.brand-left,.brand-right,.moat-left,.moat-right,.market-left,.market-right,.cta-left,.cta-right,.about-content{border:none;padding:3rem 1.5rem}
-  .prob-right{grid-template-columns:1fr 1fr}
-  .moat-right{grid-template-columns:1fr 1fr}
-  .steps-grid{grid-template-columns:1fr 1fr}
-  .pricing-grid,.team-grid{grid-template-columns:1fr}
-  .quotes-grid{grid-template-columns:1fr}
-  .section-about{grid-template-columns:1fr}
-  .about-portrait-col{border:none}
-  .pillars-2x2{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  footer{grid-template-columns:auto 1fr auto}
-  .footer-acid{display:none}
-  .how-footer{padding:1.25rem 1.5rem;grid-template-columns:1fr}
-  .pricing-header{padding:2rem 1.5rem;grid-template-columns:1fr}
-  .how-header{padding:2rem 1.5rem 1rem}
-  .how-count{font-size:4rem}
-}
-
-    /* ── HubSpot dark overrides (VIANU247) ── */
-    .hs-form-frame{display:block;margin-bottom:1rem}
-    .hs-form-frame iframe{width:100%!important;border:none!important;background:transparent!important}
-    .hs-form-frame .hs-form,.hs-form-frame form.hs-form{background:transparent!important}
-    .hs-form-frame .hs-form-field label,.hs-form-frame .hs-field-desc{color:#6b6b6b!important;font-family:'Space Mono',monospace!important;font-size:.58rem!important;letter-spacing:.14em!important;text-transform:uppercase!important}
-    .hs-form-frame input[type=text],.hs-form-frame input[type=email],.hs-form-frame input[type=tel],.hs-form-frame input[type=number],.hs-form-frame select,.hs-form-frame textarea{background:#111!important;border:1px solid #222!important;border-radius:0!important;color:#f5f0eb!important;font-family:'Space Mono',monospace!important;font-size:.7rem!important;padding:.8rem 1rem!important;width:100%!important;outline:none!important;transition:border-color .15s!important;box-shadow:none!important;-webkit-appearance:none!important}
-    .hs-form-frame input[type=text]:focus,.hs-form-frame input[type=email]:focus,.hs-form-frame input[type=tel]:focus,.hs-form-frame select:focus,.hs-form-frame textarea:focus{border-color:rgba(197,250,31,.5)!important}
-    .hs-form-frame input::placeholder,.hs-form-frame textarea::placeholder{color:#333!important}
-    .hs-form-frame select option{background:#111;color:#f5f0eb}
-    .hs-form-frame .hs-button,.hs-form-frame input[type=submit]{background:#C5FA1F!important;color:#0a0a0a!important;font-family:'Space Mono',monospace!important;font-size:.65rem!important;font-weight:700!important;letter-spacing:.14em!important;text-transform:uppercase!important;border:none!important;border-radius:0!important;padding:.85rem 2rem!important;cursor:pointer!important;width:100%!important;transition:background .15s!important;box-shadow:none!important}
-    .hs-form-frame .hs-button:hover,.hs-form-frame input[type=submit]:hover{background:#f5f0eb!important}
-    .hs-form-frame .hs-error-msgs label,.hs-form-frame .hs-main-font-element{color:#f59e0b!important;font-family:'Space Mono',monospace!important;font-size:.58rem!important}
-    .hs-form-frame .submitted-message{color:#C5FA1F!important;font-family:'Space Mono',monospace!important;font-size:.7rem!important;letter-spacing:.1em!important;text-transform:uppercase!important;padding:1rem 0!important}
-    .hs-form-frame .legal-consent-container,.hs-form-frame .hs-richtext{color:#333!important;font-size:.72rem!important;line-height:1.7!important}
-    .hs-form-frame .hs-form-booleancheckbox-display input,.hs-form-frame .hs-form-checkbox-display input{accent-color:#C5FA1F!important}
-    .hs-form-frame .inputs-list{list-style:none!important;padding:0!important}
-</style>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VIANU | Einlegesohlen für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist</title>
+<meta name="description" content="Eine Sohle, die für deinen Fuß gefertigt wird: Fotos mit dem Smartphone, Lieferung in 7 Tagen und Zufriedenheitsgarantie. So läuft es ab.">
+<link rel="alternate" hreflang="de" href="index.html">
+<link rel="alternate" hreflang="en" href="en/">
+<link rel="alternate" hreflang="x-default" href="index.html">
+<!-- seo -->
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://vianu247.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VIANU">
+<meta property="og:title" content="VIANU | Einlegesohlen für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist">
+<meta property="og:description" content="Eine Sohle, die für deinen Fuß gefertigt wird: Fotos mit dem Smartphone, Lieferung in 7 Tagen und Zufriedenheitsgarantie. So läuft es ab.">
+<meta property="og:url" content="https://vianu247.com/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VIANU | Einlegesohlen für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist">
+<meta name="twitter:description" content="Eine Sohle, die für deinen Fuß gefertigt wird: Fotos mit dem Smartphone, Lieferung in 7 Tagen und Zufriedenheitsgarantie. So läuft es ab.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "VIANU", "url": "https://vianu247.com/", "contactPoint": {"@type": "ContactPoint", "contactType": "Vertrieb", "name": "Roderich Körner-Rehn", "telephone": "+4915678548855", "availableLanguage": ["de", "en"]}}</script>
+<!-- /seo -->
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<script src="assets/js/texte.js" defer></script>
+<script src="assets/js/fortschritt.js" defer></script>
+<script src="assets/js/name.js" defer></script>
+<script src="assets/js/teilen.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+<script src="assets/js/position.js" defer></script>
+<script src="assets/js/ablauf.js" defer></script>
+<script src="assets/js/mitarbeitende.js" defer></script>
+<script src="assets/js/bausteine.js" defer></script>
+<script src="assets/js/roddy.js" defer></script>
+<script src="assets/js/werte.js" defer></script>
+<script src="assets/js/spuren.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@type": "Product",
-      "name": "VIANU247 Insole",
-      "description": "AI-crafted custom orthopedic insoles for hospitality and F&B teams. Custom-made per employee, branded for your company, and delivered in 24 hours.",
-      "brand": {
-        "@type": "Brand",
-        "name": "VIANU"
-      },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://vianu247.com/#pricing",
-        "priceCurrency": "EUR",
-        "price": "120.00",
-        "priceValidUntil": "2026-12-31",
-        "itemCondition": "https://schema.org/NewCondition",
-        "availability": "https://schema.org/InStock"
+      "@type": "Question",
+      "name": "Aus welchem Material ist die Einlegesohle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Einlegesohle besteht aus geschäumtem TPU. Das Material ist biokompatibel."
       }
     },
     {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How does the VIANU247 foot scanning process work?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Employees simply take 3 photos of their foot using any smartphone—45° outside, 45° inside, and a top-down shot of their existing insole. No app or special hardware is needed."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does it take to receive the custom insoles?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Insoles are 3D-printed in durable TPU and delivered overnight, ensuring a 24-hour turnaround from scan to delivery."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the lifespan of a VIANU247 insole?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Each pair has a 3-year product lifespan. Afterward, VIANU collects and recycles them as part of our circular ESG commitment."
-          }
-        }
-      ]
+      "@type": "Question",
+      "name": "Wie wird eine individuelle Einlegesohle gefertigt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine individuelle Einlegesohle kann per 3D-Druck nach den Fotos deiner Füße gefertigt werden. Bei VIANU wird sie lokal in Deutschland gedruckt und ist innerhalb von 48 Stunden gefertigt. Sie erreicht dich spätestens 7 Tage nach dem Fußscan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist eine individuell angefertigte Einlegesohle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine individuell angefertigte Einlegesohle ist eine Sohle, die für den Fuß einer einzelnen Person gefertigt und in Schuhe gelegt wird, die diese Person schon besitzt. VIANU fertigt solche Einlegesohlen für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was passiert, wenn ich zum Fußscan krank oder im Urlaub bin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Fußerfassung geht mit deinem Smartphone auch von überall. Bist du krank oder im Urlaub, holst du sie einfach nach, sobald du wieder gesund oder da bist. Deine Sohlen werden dann trotzdem normal geliefert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Helfen Einlegesohlen bei langem Stehen und Gehen im Beruf?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine Übersichtsarbeit mit 10 Studien (Speed et al. 2018, Applied Ergonomics) fand gute Belege dafür, dass gedämpfte Materialien wie weichere Böden und gedämpfte Einlegesohlen bei langem Stehen im Beruf mit weniger Beschwerden und Ermüdung einhergehen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie funktioniert ein Fußscan mit dem Smartphone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bei einem Fußscan mit dem Smartphone werden die Füße mit dem eigenen Handy fotografiert. VIANU nennt das Fußerfassung: Sie läuft z. B. in einer Pause, ohne Messtag und ohne zusätzliche Geräte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Muss man Einlegesohlen für die Arbeit selbst bezahlen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ob Beschäftigte Einlegesohlen für die Arbeit selbst bezahlen, hängt vom Betrieb ab. Bei VIANU bezahlt dein Arbeitgeber das Programm, für dich entstehen keine Kosten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Passt eine Einlegesohle in Arbeitsschuhe, die man schon hat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine Einlegesohle wird in Schuhe gelegt, die man schon besitzt. Neue Schuhe sind dafür nicht nötig."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist VIANU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. Der Arbeitgeber meldet das Team an, die Fußerfassung läuft mit dem eigenen Smartphone, z. B. in einer Pause, und die Sohle erreicht die Mitarbeitenden im Betrieb. Für das Verfahren zur Vermessung der Füße aus Fotos ist das Patent DE 10 2019 123 458 B4 in Deutschland erteilt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Muss ich bei VIANU mitmachen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein, die Teilnahme an VIANU ist freiwillig. Du entscheidest selbst, ob du mitmachst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Können Beschäftigte aus Küche, Service, Housekeeping oder anderen Berufen mit viel Stehen teilnehmen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Küche, Service, Housekeeping, Empfang und Bar stehen im Vordergrund. Gemeint sind auch alle anderen Berufe mit viel Stehen und Gehen, zum Beispiel Pflege, Einzelhandel, Produktion, Logistik und Reinigung. Ob dein Betrieb mitmacht, entscheidet dein Arbeitgeber."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie läuft die Fußerfassung bei mir ab?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Du öffnest unsere Anwendung auf deinem Smartphone in jedem Browser. Du machst Fotos von deinen Füßen und von der aktuellen Innensohle deines Schuhs, jeweils neben einem DIN-A4-Blatt. Pro Fußerfassung brauchst du 6 Fotos. Unsere patentgestützte generative KI unterstützt dann die Anatomie-Erkennung und die individuelle Modellierung deiner Sohle. Für das Verfahren zur Vermessung der Füße aus Fotos ist das Patent DE 10 2019 123 458 B4 in Deutschland erteilt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wer sieht meine Fotos beim Fußscan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Deine Fotos werden in der EU verarbeitet, nur für die Anfertigung deiner Sohle verwendet und nach der Herstellung gelöscht. Sehen können sie VIANU, ihre Fertigungspartner und SELFWEAR AI. Was in das lernende System von SELFWEAR AI eingeflossen ist, lässt keine Rückschlüsse mehr auf einzelne Personen zu. Dein Arbeitgeber kennt die Teilnehmerliste. Die Antworten der Befragung sieht er nur anonym auf Gruppenebene."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was passiert, wenn mir eine Einlegesohle nicht passt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bei VIANU gilt für alle Sohlen die Zufriedenheitsgarantie. Passt deine Sohle nicht oder bist du nicht zufrieden, sprechen wir online persönlich mit dir und bessern die Sohle nach oder fertigen sie neu. Sie geht kostenlos an deinen Betrieb. Bist du danach noch immer nicht zufrieden, wird der Kaufpreis vollständig erstattet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wer steckt hinter VIANU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hinter VIANU steht der Gründer Roderich Körner-Rehn. Er stand selbst 10 bis 12 Stunden am Tag auf hartem Boden. Die Sohlen werden lokal in Deutschland 3D-gedruckt. Für das Verfahren zur Vermessung der Füße aus Fotos ist das Patent DE 10 2019 123 458 B4 in Deutschland erteilt. Dein Arbeitgeber zahlt, und für alle Sohlen gilt die Zufriedenheitsgarantie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange dauert es bis zur Lieferung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wie lange es von der Fußerfassung bis zur Lieferung dauert, hängt vom Anbieter ab. Bei VIANU erreicht die Sohle dich spätestens 7 Tage nach dem Fußscan, im Betrieb."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie lange hält eine Einlegesohle im Arbeitsalltag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wie lange eine Einlegesohle im Arbeitsalltag hält, hängt vom Anbieter ab. Bei VIANU wissen wir aus eigenen Tests, dass die Sohle mindestens 3 Jahre einwandfrei hält."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann mein Name auf die Sohle gedruckt werden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ob sich Sohlen mit deinem Namen bedrucken lassen, hängt vom Anbieter ab. Bei VIANU werden Name und Firmenlogo auf die Sohle gedruckt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie wird die Passgenauigkeit meiner Einlegesohle gewährleistet und wie lange dauert die Herstellung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mit den hochpräzisen 3D-Modellen von unserem Technologie-Partner SELFWEAR AI fertigen wir per 3D-Druck deine hochindividuelle Sohle. Im gesamten Prozess findet natürlich eine weitere Analyse sowie Qualitätskontrolle durch unsere Fußexperten statt, um höchste Passgenauigkeit zu gewährleisten. Gefertigt ist sie innerhalb von 48 Stunden, bei dir ist sie spätestens 7 Tage nach dem Fußscan."
+      }
     }
   ]
 }
 </script>
-
-  <script src="https://js-eu1.hsforms.net/forms/embed/148774847.js" defer></script>
 </head>
 <body>
-<!-- NAV -->
-<nav>
-  <div class="nav-logo-wrap">
-    <a href="#" aria-label="VIANU home">
-      <img src="images/VIANU_transparent.png" alt="VIANU247" class="logo-svg-nav" style="height:32px;width:auto;display:block;filter:brightness(0) invert(1)"/>
-    </a>
-  </div>
-  <ul>
-    <li><a href="#problem" data-i18n="nav.problem">The Problem</a></li>
-    <li><a href="#how" data-i18n="nav.how">How It Works</a></li>
-    <li><a href="#roi" data-i18n="nav.roi">ROI</a></li>
-    <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
-    <li><a href="#about" data-i18n="nav.about">About</a></li>
-  </ul>
-  <div class="nav-cta-wrap">
-    <a href="#contact" class="nav-cta" data-i18n="nav.cta">Get a Quote</a>
-  </div>
-  <div class="nav-lang-wrap">
-    <div class="lang-switcher">
-      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
-    </div>
-  </div>
-</nav>
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-eyebrow fade-up d1"><div class="hero-eyebrow-line"></div><span data-i18n="hero.eyebrow">For Hospitality &amp; F&amp;B Teams</span></div>
-      <h1 class="t-display hero-title fade-up d2">
-        <span data-i18n="hero.t1">Your team</span><br>
-        <span data-i18n="hero.t2">on their</span><br>
-        <span class="line-italic" data-i18n="hero.t3">feet all day.</span><br>
-        <span data-i18n="hero.t4">Pain-free.</span>
-      </h1>
-      <p class="hero-sub fade-up d3" data-i18n="hero.sub">VIANU247 delivers AI-crafted orthopedic insoles — custom per employee, branded for your company, produced and delivered in 24 hours.</p>
-      <div class="hero-actions fade-up d4">
-        <a href="#contact" class="btn-primary" data-i18n="hero.cta1">Request Pilot</a>
-        <a href="#roi" class="btn-ghost" data-i18n="hero.cta2">calculate roi</a>
+<a class="sprung" href="#inhalt">Zum Inhalt</a>
+
+<!-- Gemeinsame Zeichnung der Sohle, wird mehrfach verwendet -->
+<svg width="0" height="0" focusable="false" aria-hidden="true" class="sr-nur">
+  <symbol id="sohle-form" viewBox="0 0 100 260">
+    <path d="M38 6C20 6 8 22 8 46c0 22 4 44 10 68 4 18 8 34 8 56 0 28 4 54 18 72 8 10 26 12 34 0 10-14 12-38 8-62-3-20-10-36-12-54-2-20 6-38 10-58 6-24-4-44-18-56C58 6 48 4 38 6z"/>
+  </symbol>
+</svg>
+
+<header class="menue menue--mitarbeitende auf-dunkel" data-menue>
+  <div class="behaelter">
+    <div class="menue__innen">
+      <a class="menue__logo" href="#" aria-label="VIANU, zur Startseite">VIANU</a>
+
+      <a class="menue__perspektive menue__perspektive--leiste" href="b2b/">
+        <span>Perspektivwechsel</span>
+        <small>Für die Entscheider-Etage</small>
+      </a>
+
+      <nav class="menue__nav" id="menue-nav" aria-label="Hauptmenü" data-menue-nav data-offen="false">
+        <ul class="menue__liste">
+          <li><a href="#sohle">Die Sohle</a></li>
+          <li><a href="#ablauf">So läuft es ab</a></li>
+          <li><a href="#fragen">Fragen</a></li>
+        </ul>
+        <div class="menue__nav-extra">
+          <a class="menue__perspektive" href="b2b/">
+            <span>Perspektivwechsel</span>
+            <small>Für die Entscheider-Etage</small>
+          </a>
+        </div>
+      </nav>
+
+      <div class="menue__rechts">
+        <div class="teilen" data-teilen>
+          <button class="teilen__knopf" type="button" aria-expanded="false" aria-controls="teilen-panel" data-teilen-knopf>
+            Teilen
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 8v4h8V8M7 9V1M4 4l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+          <div class="teilen__panel" id="teilen-panel" role="group" aria-label="Teilen" hidden>
+            <p class="etikett">An meinen Arbeitgeber</p>
+            <ul class="teilen__liste" data-teilen-rollen></ul>
+            <p class="etikett">An Kolleginnen und Kollegen</p>
+            <button class="teilen__aktion" type="button" data-teilen-kollegen>Link zu dieser Seite kopieren</button>
+            <p class="teilen__status" role="status" aria-live="polite" data-teilen-status></p>
+            <label class="sr-nur" for="teilen-link">Link zum Kopieren</label>
+            <input class="teilen__link" id="teilen-link" type="text" readonly hidden data-teilen-link>
+          </div>
+        </div>
+        <div class="sprache" role="group" aria-label="Sprache">
+          <span aria-current="true" lang="de">DE</span>
+          <a href="en/" lang="en" hreflang="en" aria-label="English version">EN</a>
+        </div>
+        <button class="menue__knopf" type="button" aria-expanded="false" aria-controls="menue-nav" data-menue-knopf>Menü</button>
       </div>
     </div>
-    <div class="hero-right fade-up d5">
-      <div class="hero-stat"><div class="t-num hero-stat-num">98<span class="unit">%</span></div><div class="hero-stat-label" data-i18n="hero.s1">of people suffer foot pain</div></div>
-      <div class="hero-stat"><div class="t-num hero-stat-num">24<span class="unit">h</span></div><div class="hero-stat-label" data-i18n="hero.s2">delivery after scan</div></div>
-      <div class="hero-stat"><div class="t-num hero-stat-num">73<span class="unit">%</span></div><div class="hero-stat-label" data-i18n="hero.s3">gross margin</div></div>
-    </div>
   </div>
-  <div class="hero-bar">
-    <div class="hero-bar-item"><div class="hero-bar-dot"></div><span class="hero-bar-text" data-i18n="bar.t1">AI-powered analysis</span></div>
-    <div class="hero-bar-item"><div class="hero-bar-dot"></div><span class="hero-bar-text" data-i18n="bar.t2">3D-printed in TPU</span></div>
-    <div class="hero-bar-item"><div class="hero-bar-dot"></div><span class="hero-bar-text" data-i18n="bar.t3">Circular by design</span></div>
-    <div class="hero-bar-scroll"><div class="scroll-line"></div><span class="scroll-text" data-i18n="bar.scroll">scroll</span></div>
-  </div>
-</section>
-<!-- IMAGES -->
-<section class="section-images" id="product-images">
-  <div class="img-cell tall">
-    <img src="images/insole-hero.jpg" alt="VIANU247 performance insole"/>
-    <div class="img-caption"><strong data-i18n="img.p1.title">The VIANU247 Insole</strong><span data-i18n="img.p1.sub">Custom-crafted to master shoemaker standards</span></div>
-  </div>
-  <div class="img-cell">
-    <img src="images/printing-process.jpg" alt="3D printing VIANU247" style="height:100%;min-height:260px"/>
-    <div class="img-caption"><strong data-i18n="img.p2.title">3D-Printed in 24h</strong><span data-i18n="img.p2.sub">Durable TPU, decentralized network</span></div>
-  </div>
-  <div class="img-cell">
-    <img src="images/branded-insoles.jpg" alt="Branded VIANU247 insoles" style="height:100%;min-height:260px"/>
-    <div class="img-caption"><strong data-i18n="img.p3.title">Branded for Your Company</strong><span data-i18n="img.p3.sub">Your colors, your name</span></div>
-  </div>
-</section>
-<!-- PROBLEM -->
-<section class="section-problem" id="problem">
-  <div class="prob-left">
-    <div>
-      <div class="sec-label" data-i18n="prob.label">01 — The Problem</div>
-      <h2 class="t-h1" style="color:var(--black)" data-reveal data-i18n="prob.headline">foot pain<br>is a hidden<br>hr cost.</h2>
-      <p style="color:#444;max-width:420px;margin-top:2rem;font-size:1rem;line-height:1.8" data-i18n="prob.body">Hotel staff, restaurant teams, and warehouse workers spend 8–12 hours on hard floors. Without support, foot pain becomes back pain, sick days, and early turnover — invisible until it's a budget crisis.</p>
-    </div>
-    <div class="chain" data-reveal>
-      <div class="chain-item first" data-i18n="chain.1">Foot Pain</div><div class="chain-arrow">&#8594;</div>
-      <div class="chain-item" data-i18n="chain.2">Back Pain</div><div class="chain-arrow">&#8594;</div>
-      <div class="chain-item" data-i18n="chain.3">Sick Days</div><div class="chain-arrow">&#8594;</div>
-      <div class="chain-item" data-i18n="chain.4">Turnover</div><div class="chain-arrow">&#8594;</div>
-      <div class="chain-item" data-i18n="chain.5">Cost</div>
-    </div>
-  </div>
-  <div class="prob-right">
-    <div class="stat-card" data-reveal><div class="t-num stat-num">98<span class="stat-unit">%</span></div><div class="stat-label" data-i18n="stat.1">of people suffer from foot pain — almost none address it</div></div>
-    <div class="stat-card" data-reveal><div class="t-num stat-num">2.4<span class="stat-unit">&#215;</span></div><div class="stat-label" data-i18n="stat.2">higher sick-day rate in on-feet roles vs. desk workers</div></div>
-    <div class="stat-card" data-reveal><div class="t-num stat-num">&#8364;<span class="stat-unit">4k</span></div><div class="stat-label" data-i18n="stat.3">average cost to replace one hospitality employee</div></div>
-    <div class="stat-card" data-reveal><div class="t-num stat-num">73<span class="stat-unit">%</span></div><div class="stat-label" data-i18n="stat.4">of employees say comfort affects their decision to stay</div></div>
-  </div>
-</section>
-<!-- HOW IT WORKS -->
-<section class="section-how" id="how">
-  <div class="how-header">
-    <div><div class="sec-label" style="color:#444" data-i18n="how.label">02 — How It Works</div><h2 class="t-h1 how-headline" data-reveal data-i18n="how.headline">smartphone<br>to insole.<br>24 hours.</h2></div>
-    <div class="how-count" aria-hidden="true">04</div>
-  </div>
-  <div class="how-img-wrap">
-    <img src="images/employee-scanning.jpg" alt="Employee photographing foot"/>
-    <div class="how-img-overlay"><span class="how-img-tag" data-i18n="how.img.tag">no app — no appointment — no clinic</span></div>
-  </div>
-  <div class="steps-grid">
-    <div class="step" data-reveal><div class="step-num">01</div><div class="step-title" data-i18n="how.s1.title">Capture</div><p class="step-body" data-i18n="how.s1.body">3 smartphone photos: 45° outside, 45° inside, top-down of existing insole. Any phone. No app. No hardware.</p><span class="step-tag" data-i18n="how.s1.tag">zero friction</span></div>
-    <div class="step" data-reveal><div class="step-num">02</div><div class="step-title" data-i18n="how.s2.title">AI Analysis</div><p class="step-body" data-i18n="how.s2.body">ONE AI extracts biomechanical data, writes production parameters. Refuses automatically if clinical intervention is required.</p><span class="step-tag" data-i18n="how.s2.tag">medical-grade</span></div>
-    <div class="step" data-reveal><div class="step-num">03</div><div class="step-title" data-i18n="how.s3.title">Production</div><p class="step-body" data-i18n="how.s3.body">3D-printed in TPU via Raise3D decentralized network. Logo and colors embedded at production — not added after.</p><span class="step-tag" data-i18n="how.s3.tag">your brand</span></div>
-    <div class="step" data-reveal><div class="step-num">04</div><div class="step-title" data-i18n="how.s4.title">Delivery</div><p class="step-body" data-i18n="how.s4.body">Overnight to your property. Each pair individually labelled. In-person pickup at local partner also available.</p><span class="step-tag" data-i18n="how.s4.tag">overnight</span></div>
-  </div>
-  <div class="how-footer">
-    <span class="how-footer-text" data-i18n="how.footer">Total: <span>under 24 hours</span> &mdash; Lifespan: <span>3 years</span> &mdash; End of life: <span>collected &amp; recycled</span></span>
-    <a href="#contact" class="btn-primary" data-i18n="how.cta">Start Now</a>
-  </div>
-</section>
-<!-- ROI -->
-<section class="section-roi" id="roi">
-  <div class="roi-left">
-    <div>
-      <div class="sec-label" data-i18n="roi.label">03 — The Business Case</div>
-      <h2 class="t-h1" style="color:var(--black)" data-reveal data-i18n="roi.headline">pays for<br>itself<br>before q2.</h2>
-      <p style="color:#444;margin-top:2rem;max-width:380px;font-size:.95rem;line-height:1.8" data-i18n="roi.body">At 120 per employee, VIANU costs less than one replacement shift. Adjust the slider.</p>
-    </div>
-    <div class="benefit-list">
-      <div class="benefit-item" data-reveal><div class="benefit-icon">&#10022;</div><div><div class="benefit-title" data-i18n="ben.1.title">Employer Branding</div><div class="benefit-desc" data-i18n="ben.1.desc">A daily, tangible signal that the company invests in its people.</div></div></div>
-      <div class="benefit-item" data-reveal><div class="benefit-icon">&#10022;</div><div><div class="benefit-title" data-i18n="ben.2.title">ESG Signal</div><div class="benefit-desc" data-i18n="ben.2.desc">Circular production model supports sustainability reporting.</div></div></div>
-      <div class="benefit-item" data-reveal><div class="benefit-icon">&#10022;</div><div><div class="benefit-title" data-i18n="ben.3.title">Zero Friction</div><div class="benefit-desc" data-i18n="ben.3.desc">No uniform change. Employees keep their own shoes.</div></div></div>
-    </div>
-  </div>
-  <div class="roi-right">
-    <div class="roi-calc">
-      <div class="roi-calc-head" data-i18n="roi.calc.head">ROI Estimator</div>
-      <div class="roi-calc-sub" data-i18n="roi.calc.sub">adjust to your team size</div>
-      <div class="slider-wrap" style="margin-bottom:2rem">
-        <label data-i18n="roi.calc.label">on-feet employees</label>
-        <input type="range" id="empSlider" min="10" max="500" value="50" step="10" oninput="updateROI()"/>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:.5rem">
-          <span class="slider-val" id="empDisplay">50</span>
-          <span class="slider-unit" data-i18n="roi.calc.employees">employees</span>
+</header>
+
+<main id="inhalt" tabindex="-1">
+
+  <section class="hero hero--start" data-spuren-bereich aria-labelledby="hero-titel">
+    <svg class="hero__spuren" viewBox="0 0 1200 130" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+      <use class="spur spur--1" href="#sohle-form" x="40" y="62" width="20" height="52" transform="rotate(90 50 88)"/>
+      <use class="spur spur--2" href="#sohle-form" x="190" y="24" width="20" height="52" transform="rotate(90 200 50)"/>
+      <use class="spur spur--3" href="#sohle-form" x="340" y="64" width="20" height="52" transform="rotate(90 350 90)"/>
+      <use class="spur spur--4" href="#sohle-form" x="490" y="26" width="20" height="52" transform="rotate(90 500 52)"/>
+      <use class="spur spur--5" href="#sohle-form" x="640" y="66" width="20" height="52" transform="rotate(90 650 92)"/>
+      <use class="spur spur--6" href="#sohle-form" x="790" y="28" width="20" height="52" transform="rotate(90 800 54)"/>
+      <use class="spur spur--7" href="#sohle-form" x="940" y="68" width="20" height="52" transform="rotate(90 950 94)"/>
+      <use class="spur spur--8" href="#sohle-form" x="1090" y="30" width="20" height="52" transform="rotate(90 1100 56)"/>
+    </svg>
+    <div class="behaelter">
+      <div class="hero__raster">
+        <div class="hero__text">
+          <h1 id="hero-titel">Walk lightly, smile brightly</h1>
+          <p class="hero__slogan">Wear your favourite shoe for hours</p>
+          <div class="hero__aktionen">
+            <button class="knopf" type="button" data-teilen-oeffnen>Zeig es deinem Arbeitgeber
+              <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            </button>
+            <a class="textlink" href="#ablauf">So läuft es ab</a>
+          </div>
+        </div>
+        <div class="hero__bild">
+          <figure class="video">
+            <video class="video__film" controls preload="none" playsinline poster="assets/img/video-vorschau.webp" aria-label="Video zu VIANU">
+              <source src="assets/video/vianu-mitarbeitende.mp4" type="video/mp4">
+              <p>Dein Browser kann dieses Video nicht abspielen.</p>
+            </video>
+          </figure>
         </div>
       </div>
-      <div class="roi-row"><span class="roi-row-label" data-i18n="roi.r1">Total investment</span><span class="roi-row-val accent" id="totalCost">&#8364;6,000</span></div>
-      <div class="roi-row"><span class="roi-row-label" data-i18n="roi.r2">Sick days prevented</span><span class="roi-row-val" id="sickDays">75 days</span></div>
-      <div class="roi-row"><span class="roi-row-label" data-i18n="roi.r3">Cover cost saved</span><span class="roi-row-val" id="sickSavings">&#8364;11,250</span></div>
-      <div class="roi-row"><span class="roi-row-label" data-i18n="roi.r4">Retention value</span><span class="roi-row-val" id="retentionSavings">&#8364;10,000</span></div>
-      <div class="roi-total"><span class="roi-total-label" data-i18n="roi.total">Net annual benefit</span><span class="roi-total-val" id="netBenefit">+&#8364;15,250</span></div>
-      <a href="#contact" class="roi-cta" data-i18n="roi.cta">Request Formal Quote</a>
     </div>
-  </div>
-</section>
-<!-- PRICING -->
-<section class="section-pricing" id="pricing">
-  <div class="pricing-header">
-    <div><div class="sec-label" style="color:#444" data-i18n="pkg.label">04 — Packages</div><h2 class="t-h2 pricing-headline" data-reveal data-i18n="pkg.headline">Three tiers. One promise.</h2></div>
-    <div class="pricing-note" data-i18n="pkg.note">10-employee pilot available for qualifying groups</div>
-  </div>
-  <div class="pricing-grid">
-    <div class="price-card" data-reveal>
-      <div class="price-tier" data-i18n="p1.t">Starter</div>
-      <div class="price-amount">&#8364;120</div>
-      <div class="price-per" data-i18n="per">/ employee</div>
-      <div class="price-min" data-i18n="p1.min">Min. 10 employees &middot; one-time</div>
-      <div class="price-divider"></div>
-      <ul class="price-features">
-        <li data-i18n="f1">AI foot scan via smartphone</li><li data-i18n="f2">Custom 3D-printed insole (TPU)</li><li data-i18n="f3">1 company color</li><li data-i18n="f4">Company name embedded</li><li data-i18n="f5">Overnight delivery</li><li data-i18n="f6">Individual labelling</li>
-      </ul>
-      <a href="#contact" class="price-cta" data-i18n="enq">Enquire</a>
-    </div>
-    <div class="price-card featured" data-reveal>
-      <div class="price-badge" data-i18n="pop">Most Popular</div>
-      <div class="price-tier" data-i18n="p2.t">Team Program</div>
-      <div class="price-amount">&#8364;109</div>
-      <div class="price-per" data-i18n="per">/ employee</div>
-      <div class="price-min" data-i18n="p2.min">50+ employees</div>
-      <div class="price-divider"></div>
-      <ul class="price-features">
-        <li data-i18n="p2.f1">Everything in Starter</li><li data-i18n="p2.f2">3 color options</li><li data-i18n="p2.f3">Branded packaging</li><li data-i18n="p2.f4">Dedicated account manager</li><li data-i18n="p2.f5">Replacement program (Yr 2&amp;3)</li><li data-i18n="p2.f6">ESG impact reporting</li>
-      </ul>
-      <a href="#contact" class="price-cta" data-i18n="plt">Request Pilot</a>
-    </div>
-    <div class="price-card" data-reveal>
-      <div class="price-tier" data-i18n="p3.t">Enterprise</div>
-      <div class="price-amount" style="font-size:2.5rem;padding-top:.5rem" data-i18n="cust">Custom</div>
-      <div class="price-per" data-i18n="p3.sm">pricing</div>
-      <div class="price-min" data-i18n="p3.min">Multi-property groups</div>
-      <div class="price-divider"></div>
-      <ul class="price-features">
-        <li data-i18n="p3.f1">Everything in Team</li><li data-i18n="p3.f2">Full custom branding</li><li data-i18n="p3.f3">Multi-site rollout</li><li data-i18n="p3.f4">HR system integration</li><li data-i18n="p3.f5">Analytics dashboard</li><li data-i18n="p3.f6">Co-branded employer branding</li>
-      </ul>
-      <a href="#contact" class="price-cta" data-i18n="tlk">Talk to Us</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ABOUT -->
-<section class="section-about" id="about">
-  <div class="about-portrait-col">
-    <div class="portrait-frame">
-      <img src="images/roderich.jpeg" alt="Roderich Körner-Rehn" style="width:100%;height:100%;object-fit:cover;display:block;object-position:top"/>
+  <section class="kurz" aria-labelledby="kurz-titel">
+    <div class="behaelter">
+      <h2 class="sr-nur" id="kurz-titel">Kurz erklärt</h2>
+      <ul class="kurz__liste">
+        <li class="kurz__punkt">
+          <p>Einlegesohlen, <strong class="kurz__wort">individuell angefertigt</strong>, für Teams, die mehrere Stunden auf den Beinen sind.</p>
+        </li>
+        <li class="kurz__punkt">
+          <p>Du fotografierst deinen Fuß mit deinem eigenen <strong class="kurz__wort">Smartphone</strong>.</p>
+        </li>
+        <li class="kurz__punkt">
+          <p>Dein <strong class="kurz__wort">Arbeitgeber zahlt</strong> das Programm.</p>
+        </li>
+        <li class="kurz__punkt">
+          <p>Die Teilnahme ist <strong class="kurz__wort">freiwillig</strong>. Du entscheidest selbst.</p>
+        </li>
+      </ul>
     </div>
-    <div class="portrait-meta">
-      <div class="portrait-name">Roderich<br>K&#246;rner-Rehn</div>
-      <div class="portrait-role" data-i18n="ab.role">Founder &amp; CEO &middot; VIANU</div>
-      <div class="portrait-links">
-        <a href="https://linkedin.com/in/rodkoerner" target="_blank" rel="noopener" class="portrait-link">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <a href="mailto:contact@vianu247.com" class="portrait-link">&#x2709; <span data-i18n="ab.contact">Contact</span></a>
+  </section>
+
+  <section class="abschnitt" id="sohle" aria-labelledby="sohle-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="sohle-titel">Alles in einer Sohle</h2>
+        <p>Das ist das, was du von uns erwarten kannst.</p>
+      </div>
+      <div class="werte" data-werte>
+        <div class="werte__stage">
+        <div class="werte__spalte werte__spalte--links">
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M4 14h28M4 22h20M4 30h32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+                <h3>Leicht durch die Schicht</h3>
+              </div>
+              <div class="wert__text"><p>Wir arbeiten darauf hin, dass deine Füße die Schicht gut mitmachen. Dafür bekommst du eine Sohle, die für deinen Fuß angefertigt wird, aus Fotos, die du z. B. in der Pause mit deinem Handy machst. Mehr als dieses Ziel versprechen wir nicht.</p></div>
+            </div>
+          </article>
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M30 7a15 15 0 1 0 9 23A13 13 0 0 1 30 7z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+                <h3>Abende, die dir gehören</h3>
+              </div>
+              <div class="wert__text"><p>Familie, Sport, Freunde: Nach der Schicht soll noch Platz für dein Leben sein. Darauf arbeiten wir hin. Du entscheidest selbst, ob du mitmachst. Die Teilnahme ist freiwillig.</p></div>
+            </div>
+          </article>
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M5 31h35v-6c-9 0-11-7-15-13l-9 4-6 3z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+                <h3>Passt in die Schuhe, die du hast</h3>
+              </div>
+              <div class="wert__text"><p>Deine Arbeitsschuhe bleiben, wie sie sind. Die Sohle kommt einfach hinein, neue Schuhe brauchst du dafür nicht. Die Sohle erreicht dich im Betrieb.</p></div>
+            </div>
+          </article>
+        </div>
+        <div class="platzhalter platzhalter--sohle werte__mitte" data-platzhalter role="group" aria-label="Platzhalter für Produktfoto einer Einlegesohle">
+          <svg class="werte__bild" viewBox="0 0 400 480" aria-hidden="true" focusable="false">
+            <defs>
+              <path id="sohle-umriss" d="M1097.7 -9.1C1086.7 -1.2 1077.3 7.3 1068.8 15.2C1060.3 23.0 1053.5 30.8 1046.8 38.2C1040.0 45.6 1034.3 52.6 1028.4 59.6C1022.5 66.5 1017.0 73.2 1011.5 80.0C1005.9 86.7 1000.4 93.3 994.9 100.0C989.4 106.7 983.9 113.3 978.5 120.0C973.1 126.7 967.8 133.3 962.5 140.0C957.2 146.7 952.0 153.3 946.8 160.0C941.7 166.7 936.5 173.3 931.5 180.0C926.4 186.7 921.4 193.3 916.3 200.0C911.3 206.7 906.3 213.3 901.3 220.0C896.3 226.7 891.3 233.3 886.3 240.0C881.3 246.7 876.3 253.3 871.2 260.0C866.2 266.7 861.1 273.3 856.0 280.0C850.9 286.7 845.8 293.3 840.8 300.0C835.7 306.7 830.7 313.3 825.7 320.0C820.7 326.7 815.8 333.3 810.9 340.0C806.0 346.7 801.1 353.3 796.3 360.0C791.4 366.7 786.7 373.3 781.8 380.0C776.9 386.7 772.1 393.3 767.1 400.0C762.1 406.7 757.0 413.3 751.7 420.0C746.4 426.7 740.9 433.3 735.2 440.0C729.4 446.7 723.4 453.3 717.2 460.0C711.0 466.7 704.5 473.3 697.8 480.0C691.2 486.7 684.2 493.3 677.3 500.0C670.3 506.7 663.1 513.3 656.0 520.0C648.9 526.7 641.7 533.3 634.6 540.0C627.5 546.7 620.3 553.3 613.4 560.0C606.5 566.7 599.7 573.3 593.1 580.1C586.6 586.8 580.1 593.5 574.2 600.8C568.4 608.0 562.5 615.3 558.0 623.4C553.4 631.5 549.0 640.1 546.7 649.5C544.4 658.9 542.9 669.3 544.3 679.6C545.7 689.9 548.8 701.4 555.2 711.5C561.7 721.6 570.9 732.2 582.9 740.1C594.9 748.0 610.5 755.1 627.4 759.0C644.3 762.8 664.5 764.3 684.3 763.0C704.0 761.7 725.9 757.2 745.7 751.2C765.6 745.1 785.8 735.9 803.4 726.6C821.1 717.3 837.3 706.0 851.5 695.6C865.6 685.2 877.6 674.1 888.4 664.1C899.2 654.2 907.8 644.6 916.2 635.9C924.5 627.2 931.5 619.4 938.5 611.7C945.6 604.1 952.0 597.2 958.4 590.3C964.9 583.3 971.1 576.7 977.3 570.0C983.5 563.3 989.6 556.7 995.4 550.0C1001.3 543.3 1007.1 536.7 1012.7 530.0C1018.2 523.3 1023.6 516.7 1028.7 510.0C1033.9 503.3 1038.8 496.7 1043.4 490.0C1048.1 483.3 1052.5 476.7 1056.6 470.0C1060.8 463.3 1064.6 456.7 1068.2 450.0C1071.8 443.3 1075.1 436.7 1078.3 430.0C1081.5 423.3 1084.4 416.7 1087.2 410.0C1090.1 403.3 1092.8 396.7 1095.5 390.0C1098.2 383.3 1100.8 376.7 1103.6 370.0C1106.3 363.3 1109.0 356.7 1111.9 350.0C1114.7 343.3 1117.7 336.7 1120.7 330.0C1123.7 323.3 1126.9 316.7 1130.1 310.0C1133.3 303.3 1136.7 296.7 1140.1 290.0C1143.5 283.3 1147.0 276.7 1150.5 270.0C1154.0 263.3 1157.6 256.7 1161.2 250.0C1164.8 243.3 1168.5 236.7 1172.2 230.0C1175.9 223.3 1179.6 216.7 1183.4 210.0C1187.3 203.3 1191.1 196.7 1195.1 190.0C1199.1 183.3 1203.2 176.7 1207.4 170.0C1211.6 163.3 1216.0 156.7 1220.4 150.0C1224.9 143.3 1229.5 136.7 1234.2 130.0C1238.9 123.3 1243.7 116.7 1248.6 110.0C1253.4 103.3 1258.4 96.7 1263.3 90.0C1268.2 83.3 1273.2 76.7 1277.9 69.9C1282.6 63.0 1287.4 56.2 1291.5 49.0C1295.7 41.9 1299.9 34.6 1302.9 26.9C1305.9 19.2 1308.8 11.1 1309.6 3.1C1310.4 -4.9 1310.5 -13.5 1307.9 -21.1C1305.2 -28.7 1300.9 -36.6 1293.9 -42.5C1286.9 -48.4 1277.2 -53.6 1265.8 -56.5C1254.5 -59.3 1240.1 -60.5 1225.8 -59.5C1211.4 -58.5 1194.8 -55.2 1179.7 -50.7C1164.6 -46.2 1148.9 -39.3 1135.2 -32.4C1121.5 -25.5 1108.8 -17.1 1097.7 -9.1Z"/>
+              <clipPath id="sohle-klemme"><use href="#sohle-umriss"/></clipPath>
+              <filter id="sohle-koernung" x="0" y="0" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.4" numOctaves="2" seed="3" result="rauschen"/>
+                <feColorMatrix in="rauschen" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 -0.45" result="punkte"/>
+                <feComposite in="punkte" in2="SourceAlpha" operator="in"/>
+              </filter>
+              <filter id="sohle-weich" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
+            </defs>
+            <g class="sohle-schatten" filter="url(#sohle-weich)"><use href="#sohle-umriss" transform="translate(20 26) translate(2 22) scale(0.52) translate(-544 59)"/></g>
+            <g class="sohle-wand">
+              <use href="#sohle-umriss" transform="translate(0.8 0.6) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(1.6 1.1) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(2.4 1.7) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(3.2 2.2) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(4.0 2.8) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(4.8 3.3) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(5.6 3.9) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(6.4 4.4) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(7.2 5.0) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(8.0 5.5) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(8.8 6.1) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(9.6 6.6) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(10.4 7.2) translate(2 22) scale(0.52) translate(-544 59)"/>
+              <use href="#sohle-umriss" transform="translate(11.2 7.7) translate(2 22) scale(0.52) translate(-544 59)"/>
+            </g>
+            <g class="sohle-koerper" transform="translate(2 22) scale(0.52) translate(-544 59)">
+              <use href="#sohle-umriss" class="sohle-basis"/>
+              <image href="assets/img/sohle-oberflaeche.webp" x="520" y="-90" width="820" height="880" clip-path="url(#sohle-klemme)"/>
+              <use href="#sohle-umriss" class="sohle-koernung" filter="url(#sohle-koernung)"/>
+              <use href="#sohle-umriss" class="sohle-randlinie"/>
+            </g>
+          </svg>
+        </div>
+        <div class="werte__spalte werte__spalte--rechts">
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="13" width="23" height="14" rx="7" fill="none" stroke="currentColor" stroke-width="2.4"/><rect x="17" y="21" width="23" height="14" rx="7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+                <h3>Hält so lange wie deine Schuhe</h3>
+              </div>
+              <div class="wert__text"><p>Die Sohle soll so lange halten wie deine Schuhe. Aus eigenen Tests wissen wir, dass diese mindestens 3 Jahre einwandfrei überstehen.</p></div>
+            </div>
+          </article>
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 4c9 11 13 17 13 23a13 13 0 0 1-26 0c0-6 4-12 13-23z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+                <h3>Bleibt frisch</h3>
+              </div>
+              <div class="wert__text"><p>In Arbeitsschuhen ist viel los. Die Sohle soll dabei frisch bleiben. Genau dafür sind unsere Sohlen gut geeignet.</p></div>
+            </div>
+          </article>
+          <article class="wert" data-wert tabindex="0">
+            <div class="wert__karte">
+              <div class="wert__kopf">
+                <svg class="wert__icon" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><path d="M6 11h22l11 12-11 12H6z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><circle cx="14" cy="23" r="2.6" fill="currentColor"/></svg>
+                <h3>Dein Name drauf</h3>
+              </div>
+              <div class="wert__text"><p>Dein Name steht auf deiner Sohle.</p></div>
+            </div>
+          </article>
+        </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="about-content">
-    <div class="sec-label" style="color:#444" data-i18n="ab.label">05 — The Founder</div>
-    <h2 class="t-h2 about-headline" data-reveal data-i18n="ab.headline">Built by someone<br>who believes business<br>should work for people.</h2>
-    <div class="about-quote" data-reveal>
-      <blockquote data-i18n="ab.quote">"The best products aren't engineered for specs — they're designed around real human needs. VIANU exists because millions of people spend their working lives in avoidable pain."</blockquote>
+  </section>
+
+  <section class="abschnitt roddy" id="erlebt" aria-labelledby="erlebt-titel">
+    <div class="behaelter">
+      <p class="leitsatz" id="erlebt-titel">Gemacht von jemand, der das Problem selbst erlebt hat</p>
+      <p class="etikett roddy__name">Roddy the Barista, Gründer von VIANU</p>
+      <div class="roddy__haelt" data-roddy>
+        <div class="roddy__stage">
+          <div class="roddy__buehne" role="group" aria-label="Roddys Weg zur Sohle">
+          <article class="roddy__szene" data-roddy-szene="1">
+            <figure class="foto roddy__bild foto--unterlagen"><img class="foto__bild" src="assets/img/foto-roderich-unterlagen.webp" width="1000" height="1333" alt="Roderich Körner-Rehn steht mit Unterlagen an einer Theke im Café" loading="lazy" decoding="async"></figure>
+            <div class="roddy__rede">
+              <p class="etikett roddy__zeit">2010 · Ausbildung</p>
+              <p class="roddy__blase">Systemgastronomie gelernt. Wie man lange steht, hat mir keiner beigebracht.</p>
+            </div>
+          </article>
+          <article class="roddy__szene" data-roddy-szene="2">
+            <figure class="foto roddy__bild foto--gespraech"><img class="foto__bild" src="assets/img/foto-roderich-gespraech.webp" width="1000" height="1333" alt="Roderich Körner-Rehn im Gespräch mit zwei Personen an einer Edelstahl-Theke, eine Person hält ein Croissant" loading="lazy" decoding="async"></figure>
+            <div class="roddy__rede">
+              <p class="etikett roddy__zeit">2012 · Yum!</p>
+              <p class="roddy__blase">Bei Pizza Hut und KFC habe ich mitbestimmt, was als Nächstes auf den Markt kommt. Für meine Füße hat niemand mitbestimmt.</p>
+            </div>
+          </article>
+          <article class="roddy__szene" data-roddy-szene="3">
+            <figure class="foto roddy__bild foto--cafe"><img class="foto__bild" src="assets/img/foto-roderich-cafe.webp" width="800" height="1422" alt="Roderich Körner-Rehn arbeitet als Barista an einer Bar" loading="lazy" decoding="async"></figure>
+            <div class="roddy__rede">
+              <p class="etikett roddy__zeit">2020 · WOYTON</p>
+              <p class="roddy__blase">Eine Café-Kette von null auf 4 Millionen Euro im Jahr. Latte Art kann ich. Stehen auch. Nur nicht lange.</p>
+            </div>
+          </article>
+          <article class="roddy__szene" data-roddy-szene="4">
+            <figure class="foto roddy__bild foto--sohle"><img class="foto__bild" src="assets/img/foto-roderich-sohle.webp" width="800" height="800" alt="Roderich Körner-Rehn hält eine 3D-gedruckte Einlegesohle in die Kamera" loading="lazy" decoding="async"></figure>
+            <div class="roddy__rede">
+              <p class="etikett roddy__zeit">20 Jahre · Harter Boden</p>
+              <p class="roddy__blase">20 Jahre stand ich 10 bis 12 Stunden am Tag auf hartem Boden. Abends ging's nur noch aufs Sofa, Sport und Freizeit war definitiv gestrichen.</p>
+            </div>
+          </article>
+          <article class="roddy__szene" data-roddy-szene="5">
+            <figure class="foto roddy__bild foto--kartons"><img class="foto__bild" src="assets/img/foto-roderich-kartons.webp" width="1000" height="1333" alt="Roderich Körner-Rehn trägt drei Kartons durch ein Café, im Hintergrund stehen zwei Personen an der Theke" loading="lazy" decoding="async"></figure>
+            <div class="roddy__rede">
+              <p class="etikett roddy__zeit">Heute · VIANU</p>
+              <p class="roddy__blase">Also habe ich mir eine Sohle gebaut, die zu meinem Fuß passt. So komme ich gut durch die Schicht UND kann abends noch mein Leben genießen. Jetzt baue ich diese Sohle auch für deinen Fuß :)</p>
+            </div>
+          </article>
+          </div>
+          <svg class="roddy__fuss" viewBox="0 0 100 260" aria-hidden="true" focusable="false">
+            <defs><clipPath id="roddy-fuell"><rect data-roddy-fuell x="0" y="0" width="100" height="260"/></clipPath></defs>
+            <use class="roddy__umriss" href="#sohle-form" width="100" height="260"/>
+            <use class="roddy__zone" href="#sohle-form" width="100" height="260" clip-path="url(#roddy-fuell)"/>
+            <text class="roddy__marke" x="50" y="140" text-anchor="middle">VIANU</text>
+          </svg>
+        </div>
+      </div>
     </div>
-    <p class="about-bio" data-i18n="ab.bio1">Roderich K&#246;rner-Rehn is a serial entrepreneur and innovation strategist building at the intersection of technology, health, and sustainable production. His conviction: the most durable businesses create genuine value for the people they serve.</p>
-    <p class="about-bio" data-i18n="ab.bio2">With VIANU, he brings together AI-driven product systems, orthopedic manufacturing, and B2B distribution to create something that hasn't existed before — a fully scalable custom orthopedic product at consumer speed, circular by design from day one.</p>
-    <div class="pillars-2x2">
-      <div class="pillar-card" data-reveal><div class="pillar-icon">&#x1F3AF;</div><div class="pillar-title" data-i18n="ab.p1t">Customer-first</div><div class="pillar-desc" data-i18n="ab.p1b">Every decision starts with the employee on their feet — not the procurement spreadsheet.</div></div>
-      <div class="pillar-card" data-reveal><div class="pillar-icon">&#x267B;&#xFE0F;</div><div class="pillar-title" data-i18n="ab.p2t">Circular by Design</div><div class="pillar-desc" data-i18n="ab.p2b">Sustainability isn't an add-on. It's the moat.</div></div>
-      <div class="pillar-card" data-reveal><div class="pillar-icon">&#x26A1;</div><div class="pillar-title" data-i18n="ab.p3t">Tech with Purpose</div><div class="pillar-desc" data-i18n="ab.p3b">AI is only meaningful when it solves a real problem.</div></div>
-      <div class="pillar-card" data-reveal><div class="pillar-icon">&#x1F91D;</div><div class="pillar-title" data-i18n="ab.p4t">Partnership</div><div class="pillar-desc" data-i18n="ab.p4b">Built on Laufwerk's master shoemakers and a decentralized production network.</div></div>
+  </section>
+
+  <section class="abschnitt" id="stimmen" data-zurueckgestellt="stimmen" aria-labelledby="stimmen-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="stimmen-titel">Aber hör nicht auf mich, hör auf andere in deiner Situation</h2>
+      </div>
+      <div class="stimmenpaar">
+      <figure class="stimme" data-platzhalter role="group" aria-label="Platzhalter für eine Stimme aus dem Pilot">
+        <span class="etikett platzhalter__etikett">Platzhalter</span>
+        <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
+        <blockquote class="stimme__text"><p>Aussagen echter Mitarbeitender aus einem Pilot, jeweils mit ihrer Erlaubnis. Bis es sie gibt, steht hier nichts Erfundenes. Bild dazu: Porträt der Person mit Vorname und Jobtitel für höchstmögliches Vertrauen und Social Proof Effekt.</p></blockquote>
+        <figcaption class="stimme__person">
+          <span class="stimme__bild" aria-hidden="true"></span>
+          <span class="stimme__name"><strong>Vorname</strong><span>Jobtitel</span></span>
+        </figcaption>
+      </figure>
+      <figure class="stimme stimme--fach" data-platzhalter role="group" aria-label="Platzhalter für die Stimme einer Fachperson aus der Orthopädietechnik">
+        <span class="etikett platzhalter__etikett">Platzhalter</span>
+        <svg class="stimme__zeichen" width="56" height="44" viewBox="0 0 56 44" aria-hidden="true" focusable="false"><path d="M0 44V26C0 11 8 2 24 0v9C16 11 13 16 13 22h11v22zM32 44V26C32 11 40 2 56 0v9C48 11 45 16 45 22h11v22z"/></svg>
+        <blockquote class="stimme__text"><p>Kurze Aussage einer Fachperson aus der Orthopädietechnik zur Sohle. Nur mit schriftlicher Erlaubnis, mit Namen und Funktion. Bis dahin steht hier nichts Erfundenes.</p></blockquote>
+        <figcaption class="stimme__person">
+          <span class="stimme__bild" aria-hidden="true"></span>
+          <span class="stimme__name"><strong>Vorname</strong><span>Funktion</span></span>
+        </figcaption>
+        <span class="etikett stimme__rolle">Aus der Orthopädietechnik</span>
+      </figure>
+      </div>
     </div>
-  </div>
-</section>
-<!-- TESTIMONIALS -->
-<section class="section-quotes">
-  <div class="quotes-header"><div class="sec-label" data-i18n="tr.label">06 — Early Partners</div><h2 class="t-h2" data-reveal data-i18n="tr.headline">Built with the people<br>who stand all day.</h2></div>
-  <div class="quotes-grid">
-    <div class="quote-card" data-reveal><div class="quote-mark">"</div><p class="quote-text" data-i18n="tr.q1">We piloted VIANU with 20 housekeeping staff. After 8 weeks, sick-day calls dropped noticeably. The team calls it one of the best benefits we've ever introduced.</p><div class="quote-divider"></div><div class="quote-author" data-i18n="tr.n1">Head of People Operations</div><div class="quote-company" data-i18n="tr.c1">Luxury Hotel Group, Germany</div></div>
-    <div class="quote-card" data-reveal><div class="quote-mark">"</div><p class="quote-text" data-i18n="tr.q2">Our kitchen staff work brutal hours on hard tile. The fact they kept their own shoes — just with a better insole — meant zero resistance. Everyone started feeling better.</p><div class="quote-divider"></div><div class="quote-author" data-i18n="tr.n2">F&amp;B Director</div><div class="quote-company" data-i18n="tr.c2">Restaurant Chain, Cologne</div></div>
-    <div class="quote-card" data-reveal><div class="quote-mark">"</div><p class="quote-text" data-i18n="tr.q3">The branding effect surprised us. Insoles with our logo came up in team surveys as a sign we cared. Simple, tangible, meaningful.</p><div class="quote-divider"></div><div class="quote-author" data-i18n="tr.n3">HR Manager</div><div class="quote-company" data-i18n="tr.c3">Regional Hospitality Group</div></div>
-  </div>
-</section>
-<!-- CTA -->
-<section class="section-cta" id="contact">
-  <div class="cta-left">
-    <div>
-      <div class="sec-label" style="color:#444" data-i18n="cta.label">07 — Next Steps</div>
-      <h2 class="t-h1 cta-headline" data-i18n="cta.headline">Ready to put<br><span class="acid">VIANU</span><br>to work?</h2>
-      <p class="cta-sub" data-i18n="cta.sub">Leave your email and we'll reach out within one business day — team size, color selection, and pilot terms.</p>
+  </section>
+
+  <section class="abschnitt" id="garantie" aria-labelledby="garantie-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf"><h2 id="garantie-titel">Deine Zufriedenheitsgarantie</h2>
+        <p>Wenn deine Sohle nicht passt, bleibst du nicht damit allein.</p></div>
+      <div class="seitenfoto__inhalt garantie--kurz">
+        <div class="garantie__kurvenwurzel" data-garantie-kurve>
+        <svg class="garantie__kurve" viewBox="0 0 640 250" role="img" aria-label="Kurve der Zufriedenheit: Punkt 1 Gespräch im Tiefpunkt, Punkt 2 Nachbessern oder neu fertigen im Hochpunkt, Punkt 3 Kaufpreis zurück auf dem Plateau." focusable="false">
+          <path class="garantie__linie" pathLength="1" d="M0 110C50 110 62 205 107 205S250 205 270 125S280 45 320 45S410 45 450 78S480 95 533 95H640"/>
+          <g class="garantie__marke" data-punkt><circle cx="107" cy="205" r="22"/><text x="107" y="213" text-anchor="middle">1</text></g>
+          <g class="garantie__marke" data-punkt><circle cx="320" cy="45" r="22"/><text x="320" y="53" text-anchor="middle">2</text></g>
+          <g class="garantie__marke" data-punkt><circle cx="533" cy="95" r="22"/><text x="533" y="103" text-anchor="middle">3</text></g>
+        </svg>
+        <ol class="garantie__punkte">
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">1</span><div><h3>Wir sprechen mit dir</h3><p>Passt deine Sohle nicht oder bist du nicht zufrieden, sprechen wir online persönlich mit dir. Wir gehen auf das ein, was du brauchst.</p></div></li>
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">2</span><div><h3>Wir bessern nach oder fertigen neu</h3><p>Danach bessern wir deine Sohle nach oder fertigen sie neu. Sie geht kostenlos an deinen Betrieb.</p></div></li>
+          <li class="garantie__punkt" data-punkt-text><span class="garantie__zahl" aria-hidden="true">3</span><div><h3>Kaufpreis zurück</h3><p>Bist du danach noch immer nicht zufrieden, wird der Kaufpreis vollständig erstattet.</p></div></li>
+        </ol>
+      </div>
+        <p class="garantie__fazit">Für uns zählt, dass jede Sohle für dich etwas bringt.</p>
+      </div>
     </div>
-    <div class="steps-list">
-      <div class="cta-step"><div class="cta-step-num">01</div><div><div class="cta-step-title" data-i18n="cta.s1.t">Discovery Call</div><div class="cta-step-desc" data-i18n="cta.s1.d">30 minutes. We scope your team size and locations. No commitment.</div></div></div>
-      <div class="cta-step"><div class="cta-step-num">02</div><div><div class="cta-step-title" data-i18n="cta.s2.t">Run a Pilot</div><div class="cta-step-desc" data-i18n="cta.s2.d">10 employees. Full process. Measured results. We handle everything.</div></div></div>
-      <div class="cta-step"><div class="cta-step-num">03</div><div><div class="cta-step-title" data-i18n="cta.s3.t">Roll Out</div><div class="cta-step-desc" data-i18n="cta.s3.d">Full team at your pace. Account manager assigned. Materials ready.</div></div></div>
+  </section>
+
+  <section class="abschnitt tag" id="tag" aria-labelledby="tag-titel" data-tag>
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="tag-titel">Ein Tag im Schichtbetrieb</h2>
+      </div>
+      <div class="tag__raster">
+        <div class="tag__uhr">
+          <svg class="uhr" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <circle class="uhr__rand" cx="60" cy="60" r="54"/>
+            <g class="uhr__striche">
+              <line x1="60" y1="10" x2="60" y2="18"/><line x1="85" y1="16.7" x2="81" y2="23.6"/><line x1="103.3" y1="35" x2="96.4" y2="39"/>
+              <line x1="110" y1="60" x2="102" y2="60"/><line x1="103.3" y1="85" x2="96.4" y2="81"/><line x1="85" y1="103.3" x2="81" y2="96.4"/>
+              <line x1="60" y1="110" x2="60" y2="102"/><line x1="35" y1="103.3" x2="39" y2="96.4"/><line x1="16.7" y1="85" x2="23.6" y2="81"/>
+              <line x1="10" y1="60" x2="18" y2="60"/><line x1="16.7" y1="35" x2="23.6" y2="39"/><line x1="35" y1="16.7" x2="39" y2="23.6"/>
+            </g>
+            <line class="uhr__zeiger" x1="60" y1="60" x2="60" y2="22" data-uhr-zeiger/>
+            <circle class="uhr__mitte" cx="60" cy="60" r="6"/>
+          </svg>
+          <p class="etikett tag__stand" data-tag-stand>Schichtbeginn · 8 Uhr</p>
+        </div>
+        <div class="tag__momente">
+          <article class="tag__moment" data-moment data-titel="Schichtbeginn" data-zeit="8 Uhr" data-stunde="8">
+            <p class="etikett tag__zeit">8 Uhr</p>
+            <h3>Schichtbeginn</h3>
+            <p>Die Schuhe sitzen, die Sohle ist drin. Dein Ziel für heute: den Tag über nicht an deine Füße denken.</p>
+          </article>
+          <article class="tag__moment" data-moment data-titel="Vormittag">
+            <h3>Vormittag</h3>
+            <p>Fliesen in der Küche, Teppich im Flur, Stein in der Lobby. Du gehst den ganzen Weg in deinen eigenen Schuhen.</p>
+          </article>
+          <article class="tag__moment" data-moment data-titel="Stoßzeit">
+            <h3>Stoßzeit</h3>
+            <p>Jetzt zählt jeder Schritt. Für genau diese Minuten bauen wir die Sohle.</p>
+          </article>
+          <article class="tag__moment" data-moment data-titel="Feierabend" data-zeit="17 Uhr" data-stunde="17">
+            <p class="etikett tag__zeit">17 Uhr</p>
+            <h3>Feierabend</h3>
+            <p>Die Schicht ist vorbei. Jetzt zeigt sich, wie viel Kraft für den Abend noch da ist.</p>
+          </article>
+          <article class="tag__moment" data-moment data-titel="Abend" data-stunde="20">
+            <h3>Abend</h3>
+            <p>Familie, Sport, Couch, Freunde. Der Abend gehört dir. Darauf arbeiten wir hin, mehr versprechen wir nicht.</p>
+          </article>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="cta-right">
-    <div>
-      <span class="cta-form-label" data-i18n="cta.form.label">get in touch — we respond within one business day</span>
-      <div class="hs-form-frame" data-region="eu1" data-form-id="a048fcc4-ec61-45dc-b6d2-1be8d7bdbb37" data-portal-id="148774847" style="margin-bottom:1rem"></div>
-      <div class="cta-note" data-i18n="cta.note">Or directly: <a href="mailto:contact@vianu247.com">contact@vianu247.com</a> &middot; <a href="tel:+4917583322248">+49 175 8332248</a></div>
+  </section>
+
+  <section class="abschnitt name" id="name" data-zurueckgestellt="name" aria-labelledby="name-titel" data-name>
+    <div class="behaelter">
+      <div class="name__raster">
+        <div class="name__eingabe">
+          <h2 id="name-titel">Dein Name auf deiner Sohle</h2>
+          <label class="etikett" for="name-feld">Dein Name</label>
+          <input class="name__feld" id="name-feld" type="text" maxlength="14" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Anna" data-name-feld>
+          <label class="etikett" for="firma-feld">Dein Unternehmen</label>
+          <input class="name__feld name__feld--firma" id="firma-feld" type="text" maxlength="18" autocomplete="organization" spellcheck="false" placeholder="Muster GmbH" data-firma-feld>
+          <button class="knopf" type="button" data-teilen-oeffnen>Zeig es deinem Arbeitgeber
+            <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </button>
+          <p class="sr-nur" role="status" aria-live="polite" data-name-ansage></p>
+        </div>
+        <div class="name__bild">
+          <svg class="sohle" viewBox="0 0 290 124" aria-hidden="true" focusable="false">
+            <g transform="translate(15 112) rotate(-90)">
+              <use class="sohle__form" href="#sohle-form" width="100" height="260"/>
+            </g>
+            <text class="sohle__name sohle__name--licht" x="151" y="63.5" data-name-text data-leer="true">Anna</text>
+            <text class="sohle__name" x="150" y="62" data-name-text data-leer="true">Anna</text>
+            <g transform="rotate(90 46 67.5)">
+              <text class="sohle__firma sohle__firma--licht" x="46.6" y="68.5" data-firma-text data-beispiel="Muster GmbH" data-leer="true">Muster GmbH</text>
+              <text class="sohle__firma" x="46" y="67.5" data-firma-text data-beispiel="Muster GmbH" data-leer="true">Muster GmbH</text>
+            </g>
+          </svg>
+        </div>
+      </div>
     </div>
-    <div class="contact-grid">
-      <div class="contact-item"><div class="contact-item-label">Email</div><div class="contact-item-val"><a href="mailto:contact@vianu247.com">contact@vianu247.com</a></div></div>
-      <div class="contact-item"><div class="contact-item-label">Phone</div><div class="contact-item-val"><a href="tel:+4917583322248">+49 175 8332248</a></div></div>
-      <div class="contact-item"><div class="contact-item-label">Web</div><div class="contact-item-val"><a href="https://vianu247.com">vianu247.com</a></div></div>
-      <div class="contact-item"><div class="contact-item-label">LinkedIn</div><div class="contact-item-val"><a href="https://linkedin.com/in/rodkoerner">rodkoerner</a></div></div>
+  </section>
+
+  <section class="abschnitt ablauf" id="ablauf" aria-labelledby="ablauf-titel" data-ablauf>
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="ablauf-titel">So läuft es ab</h2>
+        <p>In vier Schritten von der Anmeldung bis zur eigenen Sohle.</p>
+      </div>
+      <div class="ablauf__raster">
+        <ol class="ablauf__liste">
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="true" data-schritt="1">
+              <span class="ablauf__nummer" aria-hidden="true">1</span>
+              <span><strong>Dein Betrieb entscheidet sich</strong><span>Dein Arbeitgeber meldet euer Team für den Pilot an.</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="2">
+              <span class="ablauf__nummer" aria-hidden="true">2</span>
+              <span><strong>Du machst Fotos z. B. in der Pause</strong><span>Mit deinem eigenen Smartphone, ohne Messtag und ohne zusätzliche Geräte. Für jede Fußerfassung brauchst du 6 Fotos.</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="3">
+              <span class="ablauf__nummer" aria-hidden="true">3</span>
+              <span><strong>Deine Sohle entsteht</strong><span>Sie wird für deinen Fuß angefertigt. Mit unserem Partner SELFWEAR AI werden die Füße millimetergenau vermessen und als deine persönliche Einlegesohle modelliert. Sie wird in Deutschland im 3D-Druck gedruckt und ist innerhalb von 48 Stunden fertig. Dein Name und das Logo deiner Firma werden aufgedruckt.</span></span>
+            </button>
+          </li>
+          <li>
+            <button class="ablauf__schritt" type="button" aria-pressed="false" data-schritt="4">
+              <span class="ablauf__nummer" aria-hidden="true">4</span>
+              <span><strong>Du bekommst sie im Betrieb</strong><span>Die Sohle erreicht dich spätestens 7 Tage nach dem Fußscan. Sie kommt in die Schuhe, die du schon hast.</span></span>
+            </button>
+          </li>
+        </ol>
+        <div class="ablauf__bild">
+          <div class="handy-huelle">
+          <svg class="handy" viewBox="0 0 200 380" aria-hidden="true" focusable="false">
+            <rect class="handy__rahmen" x="10" y="6" width="180" height="368" rx="28"/>
+            <rect class="handy__screen" x="20" y="30" width="160" height="320" rx="10"/>
+            <rect class="handy__kerbe" x="78" y="14" width="44" height="8" rx="4"/>
+            <defs><clipPath id="handy-screen-klemme"><rect x="20" y="30" width="160" height="320" rx="10"/></clipPath></defs>
+
+            <g data-screen="1">
+              <image href="assets/img/foto-roderich-gespraech.webp" x="-19.6" y="30" width="240" height="320" preserveAspectRatio="xMidYMid slice" clip-path="url(#handy-screen-klemme)"/>
+            </g>
+
+            <g data-screen="2" hidden>
+              <image href="assets/img/foto-alltag-service.webp" x="-20.6" y="30" width="541" height="320" preserveAspectRatio="xMidYMid slice" clip-path="url(#handy-screen-klemme)"/>
+              <g class="handy__ecken">
+                <path d="M40 74v-24h24M160 74v-24h-24M40 286v24h24M160 286v24h-24"/>
+              </g>
+              <circle class="handy__ausloeser" cx="100" cy="326" r="14"/>
+            </g>
+
+            <g data-screen="3" hidden>
+              <image href="assets/img/foto-roderich-drucker.webp" x="-68" y="30" width="320" height="320" preserveAspectRatio="xMidYMid slice" clip-path="url(#handy-screen-klemme)"/>
+            </g>
+
+            <g data-screen="4" hidden>
+              <image href="assets/img/foto-roderich-kartons.webp" x="-59" y="30" width="240" height="320" preserveAspectRatio="xMidYMid slice" clip-path="url(#handy-screen-klemme)"/>
+            </g>
+          </svg>
+          <button class="knopf handy__cta" type="button" data-cta-schritt="1" data-teilen-oeffnen>Arbeitgeber anfragen</button>
+          </div>
+          <p class="sr-nur" role="status" aria-live="polite" data-ablauf-beschreibung>Schritt 1: Dein Betrieb entscheidet sich</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo-wrap">
-    <img src="images/VIANU_transparent.png" alt="VIANU247" class="logo-svg-footer" style="height:22px;width:auto;display:block;filter:brightness(0) invert(1)"/>
-  </div>
-  <p>&copy; 2026 VIANU &middot; <a href="https://vianu247.com" style="color:#444">vianu247.com</a></p>
-  <div class="footer-links">
-    <a href="impressum.html" data-i18n="ft.imp">Impressum</a>
-    <a href="#" data-i18n="ft.prv">Datenschutz</a>
-    <a href="https://instagram.com/VIANU247">@VIANU247</a>
-  </div>
-  <div class="footer-acid"></div>
-  <div style="padding:0 1rem;border-left:1px solid var(--rule);height:100%;display:flex;align-items:center">
-    <a href="https://www.checkdomain.de/unternehmen/garantie/ssl/popup/" onclick="window.open(this.href + '?host=' + window.location.host,'','height=600,width=560,scrollbars=yes'); return false;">
-      <img src="https://www.checkdomain.de/assets/bundles/web/app/widget/seal/img/ssl_certificate/de/150x150.png?20260511-133614" alt="SSL-Zertifikat" style="height:32px;width:auto;display:block"/>
-    </a>
+  </section>
+
+  <section class="abschnitt" id="fragen" aria-labelledby="fragen-titel">
+    <div class="behaelter">
+      <div class="abschnitt__kopf">
+        <h2 id="fragen-titel">Das fragst du dich vielleicht</h2>
+      </div>
+      <div class="fragen__gruppe">
+        <h3 class="etikett fragen__titel" id="fragen-allgemein">Einlegesohlen im Job</h3>
+        <div class="fragen" role="group" aria-labelledby="fragen-allgemein">
+        <details class="frage">
+          <summary>Was ist eine individuell angefertigte Einlegesohle?</summary>
+          <div class="frage__antwort"><p>Eine individuell angefertigte Einlegesohle ist eine Sohle, die für den Fuß einer einzelnen Person gefertigt und in Schuhe gelegt wird, die diese Person schon besitzt. VIANU fertigt solche Einlegesohlen für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist.</p></div>
+        </details>
+        <details class="frage">
+            <summary>Kann mein Name auf die Sohle gedruckt werden?</summary>
+            <div class="frage__antwort"><p>Ob sich Sohlen mit deinem Namen bedrucken lassen, hängt vom Anbieter ab. Bei VIANU werden Name und Firmenlogo auf die Sohle gedruckt.</p></div>
+          </details>
+        <details class="frage">
+            <summary>Wie lange hält eine Einlegesohle im Arbeitsalltag?</summary>
+            <div class="frage__antwort"><p>Wie lange eine Einlegesohle im Arbeitsalltag hält, hängt vom Anbieter ab. Bei VIANU wissen wir aus eigenen Tests, dass die Sohle mindestens 3 Jahre einwandfrei hält.</p></div>
+          </details>
+        <details class="frage">
+            <summary>Wie lange dauert es bis zur Lieferung?</summary>
+            <div class="frage__antwort"><p>Wie lange es von der Fußerfassung bis zur Lieferung dauert, hängt vom Anbieter ab. Bei VIANU erreicht die Sohle dich spätestens 7 Tage nach dem Fußscan, im Betrieb.</p></div>
+          </details>
+        <details class="frage">
+            <summary>Wer steckt hinter VIANU?</summary>
+            <div class="frage__antwort"><p>Hinter VIANU steht der Gründer Roderich Körner-Rehn. Er stand selbst 10 bis 12 Stunden am Tag auf hartem Boden. Die Sohlen werden lokal in Deutschland 3D-gedruckt. Für das Verfahren zur Vermessung der Füße aus Fotos ist das Patent DE 10 2019 123 458 B4 in Deutschland erteilt. Dein Arbeitgeber zahlt, und für alle Sohlen gilt die Zufriedenheitsgarantie.</p></div>
+          </details>
+        <details class="frage">
+            <summary>Was passiert, wenn mir eine Einlegesohle nicht passt?</summary>
+            <div class="frage__antwort"><p>Bei VIANU gilt für alle Sohlen die Zufriedenheitsgarantie. Passt deine Sohle nicht oder bist du nicht zufrieden, sprechen wir online persönlich mit dir und bessern die Sohle nach oder fertigen sie neu. Sie geht kostenlos an deinen Betrieb. Bist du danach noch immer nicht zufrieden, wird der Kaufpreis vollständig erstattet.</p></div>
+          </details>
+        <details class="frage">
+            <summary>Wie läuft die Fußerfassung bei mir ab?</summary>
+            <div class="frage__antwort"><p>Du öffnest unsere Anwendung auf deinem Smartphone in jedem Browser. Du machst Fotos von deinen Füßen und von der aktuellen Innensohle deines Schuhs, jeweils neben einem DIN-A4-Blatt. Pro Fußerfassung brauchst du 6 Fotos. Unsere patentgestützte generative KI unterstützt dann die Anatomie-Erkennung und die individuelle Modellierung deiner Sohle. Für das Verfahren zur Vermessung der Füße aus Fotos ist das Patent DE 10 2019 123 458 B4 in Deutschland erteilt.</p></div>
+          </details>
+        <details class="frage">
+          <summary>Helfen Einlegesohlen bei langem Stehen und Gehen im Beruf?</summary>
+          <div class="frage__antwort"><p>Eine Übersichtsarbeit mit 10 Studien (Speed et al. 2018, Applied Ergonomics) fand gute Belege dafür, dass gedämpfte Materialien wie weichere Böden und gedämpfte Einlegesohlen bei langem Stehen im Beruf mit weniger Beschwerden und Ermüdung einhergehen.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Wie wird eine individuelle Einlegesohle gefertigt?</summary>
+          <div class="frage__antwort"><p>Eine individuelle Einlegesohle kann per 3D-Druck nach den Fotos deiner Füße gefertigt werden. Bei VIANU wird sie lokal in Deutschland gedruckt und ist innerhalb von 48 Stunden gefertigt. Sie erreicht dich spätestens 7 Tage nach dem Fußscan.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Wie funktioniert ein Fußscan mit dem Smartphone?</summary>
+          <div class="frage__antwort"><p>Bei einem Fußscan mit dem Smartphone werden die Füße mit dem eigenen Handy fotografiert. VIANU nennt das Fußerfassung: Sie läuft z. B. in einer Pause, ohne Messtag und ohne zusätzliche Geräte.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Muss man Einlegesohlen für die Arbeit selbst bezahlen?</summary>
+          <div class="frage__antwort"><p>Ob Beschäftigte Einlegesohlen für die Arbeit selbst bezahlen, hängt vom Betrieb ab. Bei VIANU bezahlt dein Arbeitgeber das Programm, für dich entstehen keine Kosten.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Passt eine Einlegesohle in Arbeitsschuhe, die man schon hat?</summary>
+          <div class="frage__antwort"><p>Eine Einlegesohle wird in Schuhe gelegt, die man schon besitzt. Neue Schuhe sind dafür nicht nötig.</p></div>
+        </details>
+        </div>
+      </div>
+      <div class="fragen__gruppe">
+        <h3 class="etikett fragen__titel" id="fragen-vianu">Zu VIANU</h3>
+        <div class="fragen" role="group" aria-labelledby="fragen-vianu">
+        <details class="frage">
+          <summary>Was ist VIANU?</summary>
+          <div class="frage__antwort"><p>VIANU ist ein Programm für Teams mit Personal, das viele Stunden am Tag auf den Beinen ist. Die Mitarbeitenden bekommen individuell angefertigte Einlegesohlen. Der Arbeitgeber meldet das Team an, die Fußerfassung läuft mit dem eigenen Smartphone, z. B. in einer Pause, und die Sohle erreicht die Mitarbeitenden im Betrieb. Für das Verfahren zur Vermessung der Füße aus Fotos ist das Patent DE 10 2019 123 458 B4 in Deutschland erteilt.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Muss ich bei VIANU mitmachen?</summary>
+          <div class="frage__antwort"><p>Nein, die Teilnahme an VIANU ist freiwillig. Du entscheidest selbst, ob du mitmachst.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Wer sieht meine Fotos beim Fußscan?</summary>
+          <div class="frage__antwort"><p>Deine Fotos werden in der EU verarbeitet, nur für die Anfertigung deiner Sohle verwendet und nach der Herstellung gelöscht. Sehen können sie VIANU, ihre Fertigungspartner und SELFWEAR AI. Was in das lernende System von SELFWEAR AI eingeflossen ist, lässt keine Rückschlüsse mehr auf einzelne Personen zu. Dein Arbeitgeber kennt die Teilnehmerliste. Die Antworten der Befragung sieht er nur anonym auf Gruppenebene.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Was passiert, wenn ich zum Fußscan krank oder im Urlaub bin?</summary>
+          <div class="frage__antwort"><p>Die Fußerfassung geht mit deinem Smartphone auch von überall. Bist du krank oder im Urlaub, holst du sie einfach nach, sobald du wieder gesund oder da bist. Deine Sohlen werden dann trotzdem normal geliefert.</p></div>
+        </details>
+        <details class="frage">
+          <summary>Können Beschäftigte aus Küche, Service, Housekeeping oder anderen Berufen mit viel Stehen teilnehmen?</summary>
+          <div class="frage__antwort"><p>Ja. Küche, Service, Housekeeping, Empfang und Bar stehen im Vordergrund. Gemeint sind auch alle anderen Berufe mit viel Stehen und Gehen, zum Beispiel Pflege, Einzelhandel, Produktion, Logistik und Reinigung. Ob dein Betrieb mitmacht, entscheidet dein Arbeitgeber.</p></div>
+        </details>
+        <details class="frage">
+            <summary>Wie wird die Passgenauigkeit meiner Einlegesohle gewährleistet und wie lange dauert die Herstellung?</summary>
+            <div class="frage__antwort"><p>Mit den hochpräzisen 3D-Modellen von unserem Technologie-Partner SELFWEAR AI fertigen wir per 3D-Druck deine hochindividuelle Sohle. Im gesamten Prozess findet natürlich eine weitere Analyse sowie Qualitätskontrolle durch unsere Fußexperten statt, um höchste Passgenauigkeit zu gewährleisten. Gefertigt ist sie innerhalb von 48 Stunden, bei dir ist sie spätestens 7 Tage nach dem Fußscan.</p></div>
+          </details>
+        <details class="frage">
+            <summary>Aus welchem Material ist die Einlegesohle?</summary>
+            <div class="frage__antwort"><p>Die Einlegesohle besteht aus geschäumtem TPU. Das Material ist biokompatibel.</p></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rat auf-hell" id="betriebsrat" aria-labelledby="rat-titel">
+    <div class="behaelter">
+      <div class="rat__innen">
+        <h2 id="rat-titel">Für euren Betriebsrat</h2>
+        <p>Wenn es bei euch einen Betriebsrat gibt, sollte er früh dabei sein.</p>
+        <a class="knopf knopf--dunkel" href="b2b/#wer-entscheidet-mit">Seite für den Betriebsrat
+          <svg width="14" height="12" viewBox="0 0 14 12" aria-hidden="true"><path d="M1 6h11M8 1.5L12.5 6 8 10.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="arbeitgeber" aria-labelledby="mail-titel" data-mail>
+    <div class="behaelter">
+      <div class="mail__raster">
+        <div>
+          <h2 id="mail-titel">Sag es deinem Arbeitgeber</h2>
+          <p>Du entscheidest, ob du es weitergibst. Dafür gibt es zwei Wege: den Link über „Teilen“ im Menü oder diese Mail.</p>
+        </div>
+        <div class="mail__box">
+          <p class="etikett">Mailvorlage</p>
+          <div class="mail__text" data-mail-text>Betreff: Frage zu Einlegesohlen für unser Team
+
+Guten Tag,
+
+ich habe mich über das Programm von VIANU informiert. Es richtet sich an Teams, die während der Arbeit viel stehen und gehen. Ihre Lösung sind personalisierte Einlegesohlen, die z. B. unser Logo und den Namen des Mitarbeiters aufgedruckt haben.
+
+Ein Pilot mit 10 Mitarbeitenden kostet 1.200 Euro zzgl. Umsatzsteuer, die Teilnahme ist freiwillig.
+
+Ich würde mich freuen, wenn Sie sich das ansehen und das Ganze in Erwägung ziehen. Hier finden Sie die Informationen dazu:
+
+[Link zur Seite]
+
+Über eine kurze Rückmeldung freue ich mich :)
+
+Freundliche Grüße
+[Ihr Name]</div>
+          <div class="mail__aktionen">
+            <button class="knopf" type="button" data-mail-kopieren>Text kopieren</button>
+            <a class="textlink" href="assets/downloads/mail-an-arbeitgeber.txt" download>Als Datei laden</a>
+          </div>
+          <p class="teilen__status" role="status" aria-live="polite" data-mail-status></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss auf-dunkel">
+  <div class="behaelter">
+    <div class="fuss__innen">
+      <span class="fuss__logo">VIANU</span>
+      <nav class="fuss__recht" aria-label="Rechtliches">
+        <a class="textlink textlink--hell" href="impressum.html">Impressum</a>
+        <a class="textlink textlink--hell" href="datenschutz.html">Datenschutz</a>
+      </nav>
+      <a class="textlink textlink--hell" href="b2b/">Für Entscheiderinnen und Entscheider</a>
+    </div>
   </div>
 </footer>
-<script>
-const T={
-en:{
-"nav.problem":"The Problem","nav.how":"How It Works","nav.roi":"ROI","nav.pricing":"Pricing","nav.about":"About","nav.cta":"Get a Quote",
-"hero.eyebrow":"For Hospitality & F&B Teams","hero.t1":"Your team","hero.t2":"on their","hero.t3":"feet all day.","hero.t4":"Pain-free.",
-"hero.sub":"VIANU247 delivers AI-crafted orthopedic insoles \u2014 custom per employee, branded for your company, produced and delivered in 24 hours.",
-"hero.cta1":"Request Pilot \u2192","hero.cta2":"calculate roi",
-"hero.s1":"of people suffer foot pain","hero.s2":"delivery after scan","hero.s3":"gross margin",
-"bar.t1":"AI-powered analysis","bar.t2":"3D-printed in TPU","bar.t3":"Circular by design","bar.scroll":"scroll",
-"prob.label":"01 \u2014 The Problem","prob.headline":"foot pain<br>is a hidden<br>hr cost.",
-"prob.body":"Hotel staff, restaurant teams, and warehouse workers spend 8\u201312 hours on hard floors. Without support, foot pain becomes back pain, sick days, and early turnover \u2014 invisible until it\u2019s a budget crisis.",
-"chain.1":"Foot Pain","chain.2":"Back Pain","chain.3":"Sick Days","chain.4":"Turnover","chain.5":"Cost",
-"stat.1":"of people suffer from foot pain \u2014 almost none address it",
-"stat.2":"higher sick-day rate in on-feet roles vs. desk workers",
-"stat.3":"average cost to replace one hospitality employee",
-"stat.4":"of employees say comfort affects their decision to stay",
-"how.label":"02 \u2014 How It Works","how.headline":"smartphone<br>to insole.<br>24 hours.",
-"how.img.tag":"no app \u2014 no appointment \u2014 no clinic",
-"how.s1.title":"Capture","how.s1.body":"3 smartphone photos: 45\u00b0 outside, 45\u00b0 inside, top-down of existing insole. Any phone. No app. No hardware.","how.s1.tag":"zero friction",
-"how.s2.title":"AI Analysis","how.s2.body":"ONE AI extracts biomechanical data, writes production parameters. Refuses automatically if clinical intervention is required.","how.s2.tag":"medical-grade",
-"how.s3.title":"Production","how.s3.body":"3D-printed in TPU via Raise3D decentralized network. Logo and colors embedded at production \u2014 not added after.","how.s3.tag":"your brand",
-"how.s4.title":"Delivery","how.s4.body":"Overnight to your property. Each pair individually labelled. In-person pickup at local partner also available.","how.s4.tag":"overnight",
-"how.footer":"Total: <span>under 24 hours<\/span> \u2014 Lifespan: <span>3 years<\/span> \u2014 End of life: <span>collected & recycled<\/span>",
-"how.cta":"Start Now \u2192",
-"roi.label":"03 \u2014 The Business Case","roi.headline":"pays for<br>itself<br>before q2.",
-"roi.body":"At \u20ac120 per employee, VIANU costs less than one replacement shift. Adjust the slider.",
-"roi.calc.head":"ROI Estimator","roi.calc.sub":"adjust to your team size","roi.calc.label":"on-feet employees","roi.calc.employees":"employees",
-"roi.r1":"Total investment","roi.r2":"Sick days prevented","roi.r3":"Cover cost saved","roi.r4":"Retention value",
-"roi.total":"Net annual benefit","roi.cta":"Request Formal Quote \u2192",
-"ben.1.title":"Employer Branding","ben.1.desc":"A daily, tangible signal that the company invests in its people.",
-"ben.2.title":"ESG Signal","ben.2.desc":"Circular production model supports sustainability reporting.",
-"ben.3.title":"Zero Friction","ben.3.desc":"No uniform change. Employees keep their own shoes.",
-"pkg.label":"04 \u2014 Packages","pkg.headline":"Three tiers. One promise.","pkg.note":"10-employee pilot available for qualifying groups",
-"per":"/ employee","p1.t":"Starter","p1.min":"Min. 10 employees \u00b7 one-time",
-"f1":"AI foot scan via smartphone","f2":"Custom 3D-printed insole (TPU)","f3":"1 company color","f4":"Company name embedded","f5":"Overnight delivery","f6":"Individual labelling",
-"enq":"Enquire","pop":"Most Popular","p2.t":"Team Program","p2.min":"50+ employees",
-"p2.f1":"Everything in Starter","p2.f2":"3 color options","p2.f3":"Branded packaging","p2.f4":"Dedicated account manager","p2.f5":"Replacement program (Yr 2&3)","p2.f6":"ESG impact reporting",
-"plt":"Request Pilot","p3.t":"Enterprise","cust":"Custom","p3.sm":"pricing","p3.min":"Multi-property groups",
-"p3.f1":"Everything in Team","p3.f2":"Full custom branding","p3.f3":"Multi-site rollout","p3.f4":"HR system integration","p3.f5":"Analytics dashboard","p3.f6":"Co-branded employer branding",
-"tlk":"Talk to Us",
-"br.upload.label":"Upload your logo","br.upload.sub":"SVG or PNG · any size","br.ctrl.size":"Size","br.ctrl.opacity":"Opacity","br.ctrl.x":"Position X","br.ctrl.y":"Position Y","br.ctrl.reset":"Remove logo","br.ctrl.dl":"Download preview","br.canvas.hint":"Upload your logo to see it on the insole","br.label":"05 \u2014 Your Brand","br.headline":"Insoles your<br>team is proud<br>to wear.",
-"br.body":"Your company colors, your name \u2014 embedded at production, not added as a sticker.",
-"br.selected":"Selected:","br.note":"Exact matching available for Enterprise.",
-"moat.label":"06 \u2014 The Moat","moat.headline":"An AI that<br>improves itself<br>with every pair.",
-"loop.1":"Employee wears insoles","loop.2":"VIANU collects worn pair after 3 years","loop.3":"Wear patterns analysed \u2014 AI data enriched","loop.4":"Model improves \u2014 next generation better","loop.5":"Employee receives improved replacement",
-"moat.patent":"The learning loop is patented by ONE. It cannot be replicated without an established user base \u2014 compounding advantage with every customer.",
-"pillar.1.t":"Deep-tech AI","pillar.1.d":"Proprietary foot analysis and machine code generation. Built in Cologne.",
-"pillar.2.t":"Master Craft","pillar.2.d":"AI output validated to Meister shoemaker standards via Laufwerk partnership.",
-"pillar.3.t":"Circular","pillar.3.d":"Collect, recycle, improve \u2014 patented loop. Sustainability is the architecture.",
-"pillar.4.t":"Decentralized","pillar.4.d":"Raise3D network enables worldwide scaling without capital-intensive factories.",
-"mkt.label":"07 \u2014 Market","mkt.headline":"$6.3 billion.<br>6.6% CAGR<br>through 2032.",
-"mkt.tailwind.label":"Macro tailwinds",
-"tw.1.t":"Aging Population","tw.1.d":"More people need orthopedic support for longer, globally.",
-"tw.2.t":"Health Awareness","tw.2.d":"Wellness benefits are now expected \u2014 not exceptional.",
-"tw.3.t":"Personalization Mega-trend","tw.3.d":"Mass customization at scale is the defining product shift of the decade.",
-"tw.4.t":"Blue Ocean","tw.4.d":"No competitor combines smartphone scan + AI + master craft + branded B2B + circular model.",
-"ab.label":"08 \u2014 The Founder","ab.headline":"Built by someone<br>who believes business<br>should work for people.",
-"ab.quote":"\u201cThe best products aren\u2019t engineered for specs \u2014 they\u2019re designed around real human needs. VIANU exists because millions of people spend their working lives in avoidable pain.\u201d",
-"ab.bio1":"Roderich K\u00f6rner-Rehn is a serial entrepreneur and innovation strategist building at the intersection of technology, health, and sustainable production.",
-"ab.bio2":"With VIANU, he brings together AI-driven product systems, orthopedic manufacturing, and B2B distribution \u2014 a fully scalable custom orthopedic product at consumer speed, circular by design from day one.",
-"ab.role":"Founder & CEO \u00b7 VIANU","ab.contact":"Contact","ab.photo":"Add portrait photo",
-"ab.p1t":"Customer-first","ab.p1b":"Every decision starts with the employee on their feet \u2014 not the procurement spreadsheet.",
-"ab.p2t":"Circular by Design","ab.p2b":"Sustainability isn\u2019t an add-on. It\u2019s the moat.",
-"ab.p3t":"Tech with Purpose","ab.p3b":"AI is only meaningful when it solves a real problem.",
-"ab.p4t":"Partnership","ab.p4b":"Built on Laufwerk\u2019s master shoemakers and a decentralized production network.",
-"tr.label":"09 \u2014 Early Partners","tr.headline":"Built with the people<br>who stand all day.",
-"tr.q1":"We piloted VIANU with 20 housekeeping staff. After 8 weeks, sick-day calls dropped noticeably. The team calls it one of the best benefits we\u2019ve ever introduced.",
-"tr.n1":"Head of People Operations","tr.c1":"Luxury Hotel Group, Germany",
-"tr.q2":"Our kitchen staff work brutal hours on hard tile. The fact they kept their own shoes \u2014 just with a better insole \u2014 meant zero resistance.",
-"tr.n2":"F&B Director","tr.c2":"Restaurant Chain, Cologne",
-"tr.q3":"The branding effect surprised us. Insoles with our logo came up in team surveys as a sign we cared. Simple, tangible, meaningful.",
-"tr.n3":"HR Manager","tr.c3":"Regional Hospitality Group",
-"cta.label":"10 \u2014 Next Steps","cta.headline":"Ready to put<br><span class=\"acid\">VIANU<\/span><br>to work?",
-"cta.sub":"Leave your email and we\u2019ll reach out within one business day \u2014 team size, color selection, and pilot terms.",
-"cta.s1.t":"Discovery Call","cta.s1.d":"30 minutes. We scope your team size and locations. No commitment.",
-"cta.s2.t":"Run a Pilot","cta.s2.d":"10 employees. Full process. Measured results. We handle everything.",
-"cta.s3.t":"Roll Out","cta.s3.d":"Full team at your pace. Account manager assigned. Materials ready.",
-"cta.form.label":"get in touch \u2014 we respond within one business day",
-"cta.ph":"your@hotel.com","cta.btn":"GET A QUOTE",
-"cta.note":"Or directly: <a href=\"mailto:contact@vianu247.com\">contact@vianu247.com<\/a> \u00b7 <a href=\"tel:+4917583322248\">+49 175 8332248<\/a>",
-"img.p1.title":"The VIANU247 Insole","img.p1.sub":"Custom-crafted to master shoemaker standards",
-"img.p2.title":"3D-Printed in 24h","img.p2.sub":"Durable TPU, decentralized network",
-"img.p3.title":"Branded for Your Company","img.p3.sub":"Your colors, your name",
-"ft.imp":"Impressum","ft.prv":"Privacy"
-},
-de:{
-"nav.problem":"Das Problem","nav.how":"So funktionierts","nav.roi":"ROI","nav.pricing":"Preise","nav.about":"\u00dcber uns","nav.cta":"Angebot anfragen",
-"hero.eyebrow":"F\u00fcr Hospitality- & Gastro-Teams","hero.t1":"Ihr Team","hero.t2":"steht den","hero.t3":"ganzen Tag.","hero.t4":"Ohne Schmerzen.",
-"hero.sub":"VIANU247 liefert KI-gefertigte orthop\u00e4dische Einlagen \u2014 individuell pro Mitarbeiter, im Corporate Design, produziert und geliefert in 24 Stunden.",
-"hero.cta1":"Pilot anfragen \u2192","hero.cta2":"ROI berechnen",
-"hero.s1":"der Menschen leiden unter Fu\u00dfschmerzen","hero.s2":"Lieferung nach dem Scan","hero.s3":"Bruttomarge",
-"bar.t1":"KI-gest\u00fctzte Analyse","bar.t2":"3D-Druck in TPU","bar.t3":"Zirkul\u00e4r by Design","bar.scroll":"scrollen",
-"prob.label":"01 \u2014 Das Problem","prob.headline":"fu\u00dfschmerz<br>ist ein verborgener<br>hr-kostenfaktor.",
-"prob.body":"Hotelpersonal, Restaurantteams und Lagerarbeiter stehen 8\u201312 Stunden t\u00e4glich auf hartem Boden. Fu\u00dfschmerzen f\u00fchren zu R\u00fcckenproblemen, Fehlzeiten und fr\u00fchzeitiger Fluktuation.",
-"chain.1":"Fu\u00dfschmerz","chain.2":"R\u00fcckenschmerz","chain.3":"Krankentage","chain.4":"Fluktuation","chain.5":"Kosten",
-"stat.1":"der Menschen leiden unter Fu\u00dfschmerzen \u2014 fast niemand tut etwas dagegen",
-"stat.2":"h\u00f6here Krankheitsrate in Stehberufen vs. B\u00fcroarbeit",
-"stat.3":"Kosten f\u00fcr die Ersetzung eines Hospitality-Mitarbeiters",
-"stat.4":"der Mitarbeiter geben an, Komfort beeinflusst ihre Bleibe-Entscheidung",
-"how.label":"02 \u2014 So funktioniert\u2019s","how.headline":"smartphone<br>zur einlage.<br>24 stunden.",
-"how.img.tag":"keine App \u2014 kein Termin \u2014 kein Orthopäde",
-"how.s1.title":"Aufnahme","how.s1.body":"3 Selfies: 45\u00b0 au\u00dfen, 45\u00b0 innen, Draufsicht auf bestehende Einlage. Jedes Smartphone. Keine App.","how.s1.tag":"reibungslos",
-"how.s2.title":"KI-Analyse","how.s2.body":"ONE KI extrahiert biomechanische Daten, schreibt Produktionsparameter. Lehnt automatisch ab, wenn medizinische Intervention erforderlich ist.","how.s2.tag":"medizinische Logik",
-"how.s3.title":"Produktion","how.s3.body":"Mono-Material 3D-Druck \u00fcber unser dezentrales Netzwerk. Logo und Farben werden bei der Produktion eingepresst.","how.s3.tag":"Ihre Marke",
-"how.s4.title":"Lieferung","how.s4.body":"Overnight an Ihren Standort. Jedes Paar individuell zugeordnet. Abholung beim lokalen Partner m\u00f6glich.","how.s4.tag":"overnight",
-"how.footer":"Zeit: <span>unter 24 Stunden<\/span> \u2014 Lebensdauer: <span>3 Jahre<\/span> \u2014 Lebensende: <span>eingesammelt & recycelt<\/span>",
-"how.cta":"Jetzt starten \u2192",
-"roi.label":"03 \u2014 Das Gesch\u00e4ftsmodell","roi.headline":"amortisiert<br>sich vor<br>q2.",
-"roi.body":"Bei 120 \u20ac pro Mitarbeiter kostet VIANU weniger als ein Vertretungstag. Stellen Sie den Regler ein.",
-"roi.calc.head":"ROI-Rechner","roi.calc.sub":"auf Ihre Teamgr\u00f6\u00dfe einstellen","roi.calc.label":"stehende Mitarbeiter","roi.calc.employees":"Mitarbeiter",
-"roi.r1":"Gesamtinvestition","roi.r2":"Verhinderte Krankentage","roi.r3":"Einsparung Vertretungskosten","roi.r4":"Bindungswert",
-"roi.total":"J\u00e4hrlicher Nettovorteil","roi.cta":"Formales Angebot anfragen \u2192",
-"ben.1.title":"Employer Branding","ben.1.desc":"Ein t\u00e4gliches, greifbares Signal, dass das Unternehmen in seine Mitarbeiter investiert.",
-"ben.2.title":"ESG-Signal","ben.2.desc":"Zirkul\u00e4res Produktionsmodell unterst\u00fctzt die Nachhaltigkeitsberichterstattung.",
-"ben.3.title":"Null Reibung","ben.3.desc":"Keine Uniform\u00e4nderung. Mitarbeiter behalten ihre eigenen Schuhe.",
-"pkg.label":"04 \u2014 Pakete","pkg.headline":"Drei Stufen. Ein Versprechen.","pkg.note":"10-Personen-Pilot f\u00fcr qualifizierte Gruppen verf\u00fcgbar",
-"per":"/ Mitarbeiter","p1.t":"Starter","p1.min":"Mind. 10 Mitarbeiter \u00b7 einmalig",
-"f1":"KI-Fu\u00dfscan per Smartphone","f2":"Ma\u00dfgefertigte 3D-Einlage (TPU)","f3":"1 Unternehmensfarbe","f4":"Firmenname eingepresst","f5":"Overnight-Lieferung","f6":"Individuelle Beschriftung",
-"enq":"Anfragen","pop":"Am beliebtesten","p2.t":"Team-Programm","p2.min":"Ab 50 Mitarbeitern",
-"p2.f1":"Alles aus Starter","p2.f2":"3 Farboptionen","p2.f3":"Gebrandetes Packaging","p2.f4":"Dedizierter Account Manager","p2.f5":"Austauschprogramm (Jahr 2&3)","p2.f6":"ESG-Wirkungsbericht",
-"plt":"Pilot anfragen","p3.t":"Enterprise","cust":"Individuell","p3.sm":"Preis","p3.min":"Multi-Property-Gruppen",
-"p3.f1":"Alles aus Team-Programm","p3.f2":"Vollst\u00e4ndiges Custom Branding","p3.f3":"Multi-Standort-Rollout","p3.f4":"HR-Systemintegration","p3.f5":"Analytics-Dashboard","p3.f6":"Co-gebrandetes Employer Branding",
-"tlk":"Gespr\u00e4ch anfragen",
-"br.upload.label":"Upload your logo","br.upload.sub":"SVG or PNG · any size","br.ctrl.size":"Size","br.ctrl.opacity":"Opacity","br.ctrl.x":"Position X","br.ctrl.y":"Position Y","br.ctrl.reset":"Remove logo","br.ctrl.dl":"Download preview","br.canvas.hint":"Upload your logo to see it on the insole","br.upload.label":"Logo hochladen","br.upload.sub":"SVG oder PNG · beliebige Größe","br.ctrl.size":"Größe","br.ctrl.opacity":"Deckkraft","br.ctrl.x":"Position X","br.ctrl.y":"Position Y","br.ctrl.reset":"Logo entfernen","br.ctrl.dl":"Vorschau laden","br.canvas.hint":"Logo hochladen, um es auf der Einlage zu sehen","br.label":"05 \u2014 Ihre Marke","br.headline":"Einlagen, auf<br>die Ihr Team<br>stolz ist.",
-"br.body":"Ihre Unternehmensfarben, Ihr Name \u2014 bei der Produktion eingepresst, nicht als Aufkleber.",
-"br.selected":"Gew\u00e4hlt:","br.note":"Exakte Farbanpassung f\u00fcr Enterprise-Kunden.",
-"moat.label":"06 \u2014 Der Burggraben","moat.headline":"Eine KI, die<br>sich selbst<br>verbessert.",
-"loop.1":"Mitarbeiter tr\u00e4gt die Einlagen","loop.2":"VIANU sammelt das getragene Paar nach 3 Jahren ein","loop.3":"Tragem\u00f6glichkeiten analysiert \u2014 KI-Datenbasis angereichert","loop.4":"Modell verbessert sich \u2014 n\u00e4chste Generation besser","loop.5":"Mitarbeiter erh\u00e4lt verbesserte Austauscheinlage",
-"moat.patent":"Die Lernschleife ist von ONE patentiert. Sie kann ohne eine bestehende Nutzerbasis nicht repliziert werden.",
-"pillar.1.t":"Deep-tech KI","pillar.1.d":"Propriet\u00e4re Fu\u00dfanalyse und Maschinencode-Generierung. Entwickelt in K\u00f6ln.",
-"pillar.2.t":"Handwerkskunst","pillar.2.d":"KI-Output validiert nach Orthop\u00e4die-Meisterstandards \u2014 Laufwerk-Partnerschaft.",
-"pillar.3.t":"Zirkul\u00e4r","pillar.3.d":"Einsammeln, recyceln, verbessern \u2014 patentierte Schleife.",
-"pillar.4.t":"Dezentralisiert","pillar.4.d":"Raise3D-Netzwerk erm\u00f6glicht weltweite Skalierung ohne kapitalintensive Fabriken.",
-"mkt.label":"07 \u2014 Markt","mkt.headline":"6,3 Mrd. $.<br>6,6% CAGR<br>bis 2032.",
-"mkt.tailwind.label":"Makro-R\u00fcckenwind",
-"tw.1.t":"Alternde Bev\u00f6lkerung","tw.1.d":"Mehr Menschen ben\u00f6tigen l\u00e4nger orthop\u00e4dische Unterst\u00fctzung.",
-"tw.2.t":"Gesundheitsbewusstsein","tw.2.d":"Wellness-Benefits werden erwartet \u2014 nicht mehr als Bonus gesehen.",
-"tw.3.t":"Personalisierungs-Megatrend","tw.3.d":"Massenanpassung in gro\u00dfem Ma\u00dfstab ist der definierende Produkttrend des Jahrzehnts.",
-"tw.4.t":"Blauer Ozean","tw.4.d":"Kein Wettbewerber kombiniert Smartphone-Scan + KI + Meisterhandwerk + gebrandetes B2B + zirkul\u00e4res Modell.",
-"ab.label":"08 \u2014 Der Gr\u00fcnder","ab.headline":"Gebaut von jemandem,<br>der glaubt: Unternehmen<br>sollten f\u00fcr Menschen funktionieren.",
-"ab.quote":"\u201eDie besten Produkte werden nicht f\u00fcr Spezifikationen gebaut \u2014 sie werden um echte menschliche Bed\u00fcrfnisse herum entworfen. VIANU existiert, weil Millionen von Menschen ihr Arbeitsleben in vermeidbaren Schmerzen verbringen.\u201c",
-"ab.bio1":"Roderich K\u00f6rner-Rehn ist Unternehmer und Innovationsstratege an der Schnittstelle von Technologie, Gesundheit und nachhaltiger Produktion.",
-"ab.bio2":"Mit VIANU vereint er KI-gesteuerte Produktsysteme, innovative Fertigung und B2B-Vertrieb \u2014 ein vollst\u00e4ndig skalierbares, individuelles Produkt mit überragender Geschwindigkeit, zirkul\u00e4r von Tag eins an.",
-"ab.role":"Gr\u00fcnder & CEO \u00b7 VIANU","ab.contact":"Kontakt","ab.photo":"Foto hier einf\u00fcgen",
-"ab.p1t":"Kundenzentrierung","ab.p1b":"Jede Entscheidung beginnt beim Mitarbeiter auf den Beinen.",
-"ab.p2t":"Zirkul\u00e4r by Design","ab.p2b":"Nachhaltigkeit ist kein Zusatz. Sie ist die Basis.",
-"ab.p3t":"Technologie mit Zweck","ab.p3b":"KI ist nur sinnvoll, wenn sie ein echtes Problem l\u00f6st.",
-"ab.p4t":"Partnerschaft","ab.p4b":"Getragen durch Laufwerks Meisterhandwerker und ein dezentrales Produktionsnetzwerk.",
-"tr.label":"09 \u2014 Erste Partner","tr.headline":"Entwickelt mit denen,<br>die den ganzen Tag stehen.",
-"tr.q1":"Wir haben VIANU mit 20 Housekeeping-Mitarbeitern getestet. Nach 8 Wochen sind die Krankmeldungen sp\u00fcrbar zur\u00fcckgegangen.",
-"tr.n1":"Head of People Operations","tr.c1":"Luxushotelgruppe, Deutschland",
-"tr.q2":"Unser K\u00fcchenpersonal steht brutale Stunden auf hartem Fliesenboden. Dass sie ihre eigenen Schuhe behalten konnten, sorgte f\u00fcr null Widerstand.",
-"tr.n2":"F&B Director","tr.c2":"Restaurantkette, K\u00f6ln",
-"tr.q3":"Was uns \u00fcberraschte: der Branding-Effekt. Einlagen mit unserem Logo tauchten als Zeichen auf, dass wir uns k\u00fcmmern.",
-"tr.n3":"HR Manager","tr.c3":"Regionale Hospitality-Gruppe",
-"cta.label":"10 \u2014 N\u00e4chste Schritte","cta.headline":"Bereit, VIANU<br><span class=\"acid\">einzusetzen?<\/span>",
-"cta.sub":"Hinterlassen Sie Ihre E-Mail-Adresse und wir melden uns innerhalb eines Werktages.",
-"cta.s1.t":"Discovery Call","cta.s1.d":"30 Minuten. Wir ermitteln Teamgr\u00f6\u00dfe und Standorte. Kein Commitment.",
-"cta.s2.t":"Pilot starten","cta.s2.d":"10 Mitarbeiter. Vollst\u00e4ndiger Prozess. Messbare Ergebnisse.",
-"cta.s3.t":"Rollout","cta.s3.d":"Vollst\u00e4ndiges Team in Ihrem Tempo. Account Manager zugewiesen.",
-"cta.form.label":"kontaktieren Sie uns \u2014 wir antworten innerhalb eines Werktages",
-"cta.ph":"ihre@unternehmen.de","cta.btn":"ANGEBOT ANFRAGEN",
-"cta.note":"Oder direkt: <a href=\"mailto:contact@vianu247.com\">contact@vianu247.com<\/a> \u00b7 <a href=\"tel:+4917583322248\">+49 175 8332248<\/a>",
-"img.p1.title":"Die VIANU247-Einlage","img.p1.sub":"Nach Orthop\u00e4die-Meisterstandards gefertigt",
-"img.p2.title":"3D-gedruckt in 24 Stunden","img.p2.sub":"Strapaziertf\u00e4higes TPU, dezentrales Netzwerk",
-"img.p3.title":"Im Corporate Design Ihres Unternehmens","img.p3.sub":"Ihre Farben, Ihr Name",
-"ft.imp":"Impressum","ft.prv":"Datenschutz"
-}};
 
-let lang='en';
-function detectLang(){const l=(navigator.language||'en').toLowerCase();return(l.startsWith('de')||l.startsWith('at'))?'de':'en';}
-function setLang(l){
-  lang=l;
-  document.documentElement.lang=l;
-  document.getElementById('btn-en').classList.toggle('active',l==='en');
-  document.getElementById('btn-de').classList.toggle('active',l==='de');
-  const d=T[l];
-  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!==undefined)el.innerHTML=d[k];});
-  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.getAttribute('data-i18n-ph');if(d[k]!==undefined)el.placeholder=d[k];});
-  const sw=document.querySelector('.swatch.active');
-  if(sw){const key='name'+l.charAt(0).toUpperCase()+l.slice(1);document.getElementById('colorName').textContent=sw.dataset[key]||'';}
-  document.title=l==='de'?'VIANU247 \u2014 Die Zukunft der Fu\u00dfgesundheit':'VIANU247 \u2014 The Future of Foot Health';
-  updateROI();
-}
-function updateROI(){
-  const emp=parseInt(document.getElementById('empSlider').value);
-  document.getElementById('empDisplay').textContent=emp;
-  const cost=emp*120,sick=Math.round(emp*1.5),sickSav=sick*150,ret=Math.round(emp*4000*.05),net=sickSav+ret-cost;
-  const loc=lang==='de'?'de-DE':'en-GB';
-  const dayLabel=lang==='de'?' Tage':' days';
-  document.getElementById('totalCost').textContent='\u20ac'+cost.toLocaleString(loc);
-  document.getElementById('sickDays').textContent=sick+dayLabel;
-  document.getElementById('sickSavings').textContent='\u20ac'+sickSav.toLocaleString(loc);
-  document.getElementById('retentionSavings').textContent='\u20ac'+ret.toLocaleString(loc);
-  document.getElementById('netBenefit').textContent=(net>=0?'+':'')+'\u20ac'+net.toLocaleString(loc);
-}
-document.querySelectorAll('.swatch').forEach(sw=>{
-  sw.addEventListener('click',()=>{
-    document.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));
-    sw.classList.add('active');
-    document.getElementById('insolePreview').style.background=sw.dataset.color;
-    const key='name'+lang.charAt(0).toUpperCase()+lang.slice(1);
-    document.getElementById('colorName').textContent=sw.dataset[key]||'';
-  });
-});
-function handleSubmit(){
-  const e=document.getElementById('emailInput').value;
-  if(!e||!e.includes('@')){alert(lang==='de'?'Bitte g\u00fcltige E-Mail eingeben.':'Please enter a valid email address.');return;}
-  alert(lang==='de'?'Vielen Dank! Wir melden uns innerhalb eines Werktages.\n\nE-Mail: '+e:'Thank you! We\'ll be in touch within one business day.\n\nEmail: '+e);
-  document.getElementById('emailInput').value='';
-}
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.08});
-document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
-setLang(detectLang());
-updateROI();
-
-
-</script>
 </body>
 </html>
