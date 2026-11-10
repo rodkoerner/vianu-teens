@@ -184,6 +184,8 @@ body.teens .held {
 .aufbau__punkt { font-family: var(--schrift-mono); font-weight: 700; flex: none; }
 .aufbau__punkt--plus { color: #14803c; }
 .aufbau__punkt--minus { color: #b3232c; }
+.aufbau__liste--klein li { font-size: 0.84rem; }
+.aufbau__liste--klein .aufbau__punkt { font-size: 0.78rem; }
 
 .aufbau__fuss-tinte { fill: var(--farbe-tinte); }
 .aufbau__fuss-signal { fill: var(--farbe-signal); }
