@@ -194,6 +194,12 @@ body.teens .held {
 .aufbau__linie { fill: none; stroke: var(--farbe-tinte); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
 .aufbau__linie--gestrichelt { stroke-dasharray: 5 7; stroke-width: 2; }
 .aufbau__text { font-family: var(--schrift-mono); font-size: 11px; letter-spacing: 0.06em; fill: var(--farbe-tinte); }
+.aufbau__text--klein { font-size: 10px; fill: var(--farbe-gedaempft); }
+.aufbau__text--mini { font-size: 9px; }
+.aufbau__fuss-signal--dunkel { stroke: color-mix(in srgb, var(--farbe-signal) 55%, var(--farbe-tinte)); stroke-width: 6; fill: none; }
+.aufbau__fuss-grau--dashed { fill: none; stroke: var(--farbe-gedaempft); stroke-width: 2; stroke-dasharray: 4 6; }
+.aufbau__fuss-pink--dashed { fill: none; stroke: var(--farbe-naehe); stroke-width: 2; stroke-dasharray: 4 6; }
+.aufbau__punkt-raster { fill: color-mix(in srgb, var(--farbe-tinte) 40%, transparent); }
 
 @media (max-width: 56rem) {
   .aufbau__raster { grid-template-columns: minmax(0, 1fr); }
