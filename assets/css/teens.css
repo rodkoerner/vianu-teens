@@ -1,0 +1,220 @@
+/*
+  Farbwelt und Bausteine der Teens-Seite (12 bis 18 Jahre).
+  Gilt nur für body.teens und überschreibt die Rollen aus tokens.css,
+  damit die B2B-Seiten ihre eigene Farbwelt behalten.
+  Aktuelle Belegung: Farbwelt "Violett, Limette und Pink".
+*/
+
+body.teens {
+  --farbe-tinte: #1E1A3C;
+  --farbe-papier: #F7F5FF;
+  --farbe-signal: #C8FF4D;
+  --farbe-naehe: #FF6BD6;
+  --farbe-gedaempft: #5C5673;
+  --farbe-linie: #E0DCF2;
+  --farbe-auf-signal: #1E1A3C;
+}
+
+/* Held */
+
+body.teens .held {
+  position: relative;
+  overflow-x: clip;
+  padding-block: clamp(48px, 9vw, 110px) clamp(40px, 7vw, 80px);
+  background:
+    radial-gradient(42rem 42rem at 85% -10%, color-mix(in srgb, var(--farbe-naehe) 26%, transparent), transparent 70%),
+    radial-gradient(38rem 38rem at -5% 110%, color-mix(in srgb, var(--farbe-signal) 30%, transparent), transparent 70%),
+    var(--farbe-papier);
+}
+
+.held__raster {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: var(--abstand-7);
+  align-items: center;
+}
+
+.held__text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--abstand-5); }
+.held__ueber { color: color-mix(in srgb, var(--farbe-naehe) 45%, var(--farbe-tinte)); font-weight: 700; }
+.held__slogan { font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 500; line-height: 1.35; }
+
+.held__chips { display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
+.held__chip {
+  padding: var(--abstand-2) var(--abstand-4);
+  border: var(--kante) solid var(--farbe-tinte);
+  border-radius: 999px;
+  font-family: var(--schrift-mono);
+  font-size: var(--schrift-groesse-etikett);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.held__chips .held__chip:nth-child(2) { background: var(--farbe-signal); }
+.held__chips .held__chip:nth-child(3) { background: var(--farbe-naehe); color: #fff; }
+
+.held__aktionen { display: flex; flex-wrap: wrap; align-items: center; gap: var(--abstand-5); }
+
+.held__bild { position: relative; }
+.held__bild img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: var(--kante) solid var(--farbe-tinte);
+  border-radius: 18px;
+  transform: rotate(2deg);
+  box-shadow: 10px 10px 0 var(--farbe-signal);
+}
+.held__bild figcaption {
+  margin-top: var(--abstand-5);
+  font-size: var(--schrift-groesse-klein);
+  color: var(--farbe-gedaempft);
+}
+
+/* Kartenraster für Argumente */
+
+.karten {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--abstand-4);
+}
+
+.karte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--abstand-3);
+  padding: var(--abstand-5);
+  border: var(--kante) solid var(--farbe-tinte);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.karte__icon { width: 2.75rem; height: 2.75rem; }
+.karte h3 { font-size: clamp(1.15rem, 1.6vw, 1.45rem); }
+.karte p { font-size: var(--schrift-groesse-klein); }
+.karte__etikett { color: var(--farbe-gedaempft); }
+
+.karte--signal { background: var(--farbe-signal); }
+.karte--pink { background: var(--farbe-naehe); color: #fff; }
+.karte--pink .karte__etikett { color: color-mix(in srgb, #fff 75%, var(--farbe-tinte)); }
+.karte--dunkel { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.karte--dunkel .karte__etikett { color: color-mix(in srgb, var(--farbe-papier) 70%, transparent); }
+
+/* Abschnitt für Eltern und Trainer */
+
+.fuer-kaeufer { background: var(--farbe-tinte); color: var(--farbe-papier); }
+.fuer-kaeufer .abschnitt__kopf p { color: color-mix(in srgb, var(--farbe-papier) 80%, transparent); }
+.fuer-kaeufer .karte { background: color-mix(in srgb, var(--farbe-tinte) 82%, #fff); border-color: var(--farbe-papier); }
+.fuer-kaeufer .karte--signal { background: var(--farbe-signal); color: var(--farbe-auf-signal); border-color: var(--farbe-signal); }
+.fuer-kaeufer .karte--signal .karte__etikett { color: var(--farbe-auf-signal); }
+
+/* Ablauf in drei Schritten */
+
+.schritte {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--abstand-4);
+  counter-reset: schritt;
+}
+
+.schritt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--abstand-3);
+  padding: var(--abstand-5);
+  border: var(--kante) solid var(--farbe-tinte);
+  border-radius: 18px;
+  counter-increment: schritt;
+}
+
+.schritt::before {
+  content: counter(schritt, decimal-leading-zero);
+  font-family: var(--schrift-mono);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: var(--farbe-naehe);
+}
+
+.schritt:nth-child(2)::before { color: var(--farbe-signal); -webkit-text-stroke: 1px var(--farbe-tinte); }
+.schritt:nth-child(3)::before { color: var(--farbe-tinte); }
+.schritt p { font-size: var(--schrift-groesse-klein); }
+
+/* Start-Aufruf */
+
+.start {
+  background:
+    radial-gradient(36rem 30rem at 110% 20%, color-mix(in srgb, var(--farbe-naehe) 40%, transparent), transparent 70%),
+    var(--farbe-tinte);
+  color: var(--farbe-papier);
+  text-align: center;
+  padding-block: clamp(48px, 8vw, 96px);
+}
+
+.start__innen { display: flex; flex-direction: column; align-items: center; gap: var(--abstand-5); }
+.start h2 { max-width: 18ch; }
+.start p { max-width: 52ch; }
+.start .knopf { border-color: var(--farbe-signal); }
+.start .knopf:hover { background: var(--farbe-papier); color: var(--farbe-tinte); }
+.start__kontakt { font-size: var(--schrift-groesse-klein); color: color-mix(in srgb, var(--farbe-papier) 80%, transparent); }
+
+/* Aufbau und Vergleich */
+
+.aufbau__raster {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--abstand-5);
+}
+
+.aufbau__figur {
+  display: flex;
+  flex-direction: column;
+  gap: var(--abstand-4);
+  margin: 0;
+  padding: var(--abstand-5);
+  border: var(--kante) solid var(--farbe-tinte);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.aufbau__figur-titel { font-size: clamp(1.05rem, 1.4vw, 1.25rem); }
+.aufbau__bild { width: 100%; height: auto; }
+
+.aufbau__liste { display: flex; flex-direction: column; gap: var(--abstand-2); }
+.aufbau__liste li { display: flex; gap: var(--abstand-3); font-size: var(--schrift-groesse-klein); align-items: baseline; }
+.aufbau__punkt { font-family: var(--schrift-mono); font-weight: 700; flex: none; }
+.aufbau__punkt--plus { color: #14803c; }
+.aufbau__punkt--minus { color: #b3232c; }
+.aufbau__liste--klein li { font-size: 0.84rem; }
+.aufbau__liste--klein .aufbau__punkt { font-size: 0.78rem; }
+
+.aufbau__fuss-tinte { fill: var(--farbe-tinte); }
+.aufbau__fuss-signal { fill: var(--farbe-signal); }
+.aufbau__fuss-pink { fill: var(--farbe-naehe); }
+.aufbau__fuss-grau { fill: color-mix(in srgb, var(--farbe-gedaempft) 45%, #fff); }
+.aufbau__linie { fill: none; stroke: var(--farbe-tinte); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.aufbau__linie--gestrichelt { stroke-dasharray: 5 7; stroke-width: 2; }
+.aufbau__text { font-family: var(--schrift-mono); font-size: 11px; letter-spacing: 0.06em; fill: var(--farbe-tinte); }
+.aufbau__text--mini { font-size: 9px; }
+.aufbau__fuss-signal--dunkel { stroke: color-mix(in srgb, var(--farbe-signal) 55%, var(--farbe-tinte)); stroke-width: 6; fill: none; }
+.aufbau__punkt-raster { fill: color-mix(in srgb, var(--farbe-tinte) 40%, transparent); }
+
+@media (max-width: 56rem) {
+  .aufbau__raster { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 34rem) {
+  .aufbau__raster { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Reaktion auf schmale Bildschirme */
+
+@media (max-width: 56rem) {
+  .held__raster { grid-template-columns: minmax(0, 1fr); }
+  .held__bild { order: -1; max-width: 30rem; }
+  .karten { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .schritte { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 34rem) {
+  .karten { grid-template-columns: minmax(0, 1fr); }
+}
