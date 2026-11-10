@@ -157,6 +157,50 @@ body.teens .held {
 .start .knopf:hover { background: var(--farbe-papier); color: var(--farbe-tinte); }
 .start__kontakt { font-size: var(--schrift-groesse-klein); color: color-mix(in srgb, var(--farbe-papier) 80%, transparent); }
 
+/* Aufbau und Vergleich */
+
+.aufbau__raster {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--abstand-5);
+}
+
+.aufbau__figur {
+  display: flex;
+  flex-direction: column;
+  gap: var(--abstand-4);
+  margin: 0;
+  padding: var(--abstand-5);
+  border: var(--kante) solid var(--farbe-tinte);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.aufbau__figur-titel { font-size: clamp(1.05rem, 1.4vw, 1.25rem); }
+.aufbau__bild { width: 100%; height: auto; }
+
+.aufbau__liste { display: flex; flex-direction: column; gap: var(--abstand-2); }
+.aufbau__liste li { display: flex; gap: var(--abstand-3); font-size: var(--schrift-groesse-klein); align-items: baseline; }
+.aufbau__punkt { font-family: var(--schrift-mono); font-weight: 700; flex: none; }
+.aufbau__punkt--plus { color: #14803c; }
+.aufbau__punkt--minus { color: #b3232c; }
+
+.aufbau__fuss-tinte { fill: var(--farbe-tinte); }
+.aufbau__fuss-signal { fill: var(--farbe-signal); }
+.aufbau__fuss-pink { fill: var(--farbe-naehe); }
+.aufbau__fuss-grau { fill: color-mix(in srgb, var(--farbe-gedaempft) 45%, #fff); }
+.aufbau__linie { fill: none; stroke: var(--farbe-tinte); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.aufbau__linie--gestrichelt { stroke-dasharray: 5 7; stroke-width: 2; }
+.aufbau__text { font-family: var(--schrift-mono); font-size: 11px; letter-spacing: 0.06em; fill: var(--farbe-tinte); }
+
+@media (max-width: 56rem) {
+  .aufbau__raster { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 34rem) {
+  .aufbau__raster { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* Reaktion auf schmale Bildschirme */
 
 @media (max-width: 56rem) {
